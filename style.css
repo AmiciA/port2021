@@ -1,0 +1,120 @@
+body {
+  background: #fafafa;
+  font-family: 'Inter', sans-serif;
+  color: #504a5a;
+  margin: auto;
+  padding: 0 20px;
+  max-width: 700px;
+}
+
+header {
+  margin: 0 0 24px;
+}
+
+h1, header, footer {
+  text-align: center;
+}
+h1 {
+  font-size: 56px;
+  margin: 64px 0 8px;
+  text-decoration: underline #ffbc60;
+}
+h2 {
+  margin: 64px 0 12px;
+  border-bottom: 1px solid #ccc;
+}
+h3 {
+  margin: 24px 0 4px;
+  padding-bottom: 0;
+}
+h3>a {
+  text-decoration: none;
+}
+
+blockquote, p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  letter-spacing: -.01em;
+}
+p {
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 0 0 12px;
+}
+
+i {
+  font-style: normal;
+  text-decoration: underline #ffbc60 wavy;
+}
+
+a, summary {
+  cursor: pointer;
+  color: #de6548;
+}
+summary {
+  margin-top: -8px;
+}
+
+details>p:first-of-type {
+  margin-top: 12px;
+}
+
+.stats {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #6c6479;
+}
+.stats>a{
+  text-transform: none;
+  color: #6c6479;
+}
+
+img {
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+img.logo {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  transition: all .15s ease-in-out;
+  box-shadow: 0 2px 3px 0px rgb(20, 11, 56, .3);
+}
+img.logo:hover {
+  transform: rotate(-10deg) scale(1.07);
+}
+
+img#top {
+  background-image: radial-gradient(rgba(250, 250, 250, .00) 25%,
+                                    rgba(250, 250, 250, .60) 50%), 
+                    url(https://i.piclaya.com/images/me_under_bigslow.gif);
+  background-size: cover;
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid #de6548;
+  font-size: 14px;
+  padding: 3px 5px 1px 6px;
+  color: #de6548;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #de6548;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding-top: 16px;
+  margin-top: 40px;
+}
+
+a:hover, summary:hover {
+  color: #be2c00;
+}
