@@ -1,73 +1,12 @@
+/* ———————————————— UNIVERSAL ———————————————— */
 body {
   background: #fafafa;
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   color: #504a5a;
   margin: auto;
   padding: 0 20px;
   max-width: 700px;
-}
-
-header {
-  margin: 0 0 24px;
-}
-
-h1, header, footer {
-  text-align: center;
-}
-h1 {
-  font-size: 56px;
-  margin: 64px 0 8px;
-  text-decoration: underline #ffbc60;
-}
-h2 {
-  margin: 64px 0 12px;
-  border-bottom: 1px solid #ccc;
-}
-h3 {
-  margin: 24px 0 4px;
-  padding-bottom: 0;
-}
-h3>a {
-  text-decoration: none;
-}
-
-blockquote, p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 0 0 16px;
-  letter-spacing: -.01em;
-}
-p {
-  font-size: 16px;
-  line-height: 1.45;
-  margin: 0 0 12px;
-}
-
-i {
-  font-style: normal;
-  text-decoration: underline #ffbc60 wavy;
-}
-
-a, summary {
-  cursor: pointer;
-  color: #de6548;
-}
-summary {
-  margin-top: -8px;
-}
-
-details>p:first-of-type {
-  margin-top: 12px;
-}
-
-.stats {
-  text-transform: uppercase;
-  font-size: 14px;
-  color: #6c6479;
-}
-.stats>a{
-  text-transform: none;
-  color: #6c6479;
+  background-image: url(assets/bkg.png);
 }
 
 img {
@@ -75,6 +14,137 @@ img {
   max-width: 100%;
 }
 
+a, summary {
+  color: #de6548;
+}
+
+a:hover, summary:hover {
+  color: #be2c00;
+}
+
+
+
+/* ———————————————— HERO ———————————————— */
+header {
+  margin: 0 0 32px;
+}
+
+img#top {
+  background-image: url(assets/hero/me_photo.png),
+                    radial-gradient(rgba(250, 250, 250, .00) 25%,
+                                    rgba(250, 250, 250, .50) 50%),
+                    url(assets/hero/me_bubbles.gif);
+  background-size: cover;
+}
+
+
+
+/* ———————————————— TEXT HIERARCHY ———————————————— */
+/* HERO AREA */
+h1, header, footer { text-align: center; }
+
+h1 {
+  font-family: "IBM Plex Serif";
+  font-size: 56px;
+  margin: 32px 0 12px;
+}
+
+h1>i {
+  padding: 0 8px;
+  box-shadow: inset 0px -24px 0px 0px #FFBC60;
+}
+
+/* BODY HEADINGS */
+h2 {
+  margin: 80px 0 8px;
+}
+
+/*h2:first-of-type {
+  border-bottom: 1px solid #beb5ce;
+}*/
+
+h3 {
+  margin: 24px 0 6px;
+  padding-bottom: 0;
+}
+
+h3>a {
+  text-decoration: none;
+}
+
+h3>a::after {
+  content: "->";
+  transition: all .1s ease-in-out;
+  padding-left: 4px;
+}
+
+h3>a:hover::after {
+  padding-left: 8px;
+}
+
+/* BODY COPY */
+blockquote {
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  letter-spacing: -.01em;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 0 0 12px;
+}
+
+footer {
+  border-top: 1px solid #beb5ce;
+  padding-top: 16px;
+  margin-top: 40px;
+}
+
+
+
+/* ———————————————— FUNCTIONAL TEXT ———————————————— */
+/* UNDERLINE */
+i {
+  font-style: normal;
+  box-shadow: inset 0px -10px 0px 0px rgb(255, 188, 96, .3);
+}
+
+/* TOOLTIP */
+abbr {
+  text-decoration: none;
+  font-variant: none;
+  border-bottom: 2px dotted #FFBC60;
+  cursor: help;
+}
+
+/* PROJECT DETAILS */
+/* Year, tags, link */
+.stats {
+  letter-spacing: 0.01em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #6c6479;
+}
+
+.stats>a {
+  text-transform: none;
+  color: #6c6479;
+}
+
+.stats>a:hover {
+  color: #be2c00;
+}
+
+.stats>s {
+  text-transform: lowercase;
+  text-decoration: none;
+  color: #beb5ce;
+}
+
+/* Logo */
 img.logo {
   float: left;
   width: 40px;
@@ -83,17 +153,47 @@ img.logo {
   transition: all .15s ease-in-out;
   box-shadow: 0 2px 3px 0px rgb(20, 11, 56, .3);
 }
+
 img.logo:hover {
   transform: rotate(-10deg) scale(1.07);
 }
 
-img#top {
-  background-image: radial-gradient(rgba(250, 250, 250, .00) 25%,
-                                    rgba(250, 250, 250, .60) 50%), 
-                    url(https://i.piclaya.com/images/me_under_bigslow.gif);
-  background-size: cover;
+/* PROJECT ACCORDIONS */
+/* Open link */
+summary {
+  margin-top: -6px;
+  padding: 6px 0px;
+  border-radius: 4px 4px 12px 12px;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
 }
 
+summary:hover {
+  padding: 6px 12px;
+  background-color: rgb(222, 101, 72, .1);
+}
+
+/* First paragraph */
+details>p:first-of-type {
+  margin-top: 12px;
+}
+
+/* Case study link*/
+details>a {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 6px 0px;
+  border-radius: 4px 4px 12px 12px;
+  transition: all .1s ease-in-out;
+}
+
+details>a:hover {
+  padding: 6px 12px;
+  background-color: rgb(222, 101, 72, .1);
+  text-decoration: none;
+}
+
+/* INLINE BUTTON */
 button {
   border-radius: 6px;
   border: 1px solid #de6548;
@@ -102,19 +202,10 @@ button {
   color: #de6548;
   cursor: pointer;
   background-color: transparent;
+  transition: all .1s ease-in-out;
 }
 
 button:hover {
   color: #fff;
   background-color: #de6548;
-}
-
-footer {
-  border-top: 1px solid #ccc;
-  padding-top: 16px;
-  margin-top: 40px;
-}
-
-a:hover, summary:hover {
-  color: #be2c00;
 }
