@@ -44,7 +44,7 @@ img#top {
 h1, header, footer { text-align: center; }
 
 h1 {
-  font-family: "IBM Plex Serif";
+  font-family: "IBM Plex Serif", serif;
   font-size: 56px;
   margin: 32px 0 12px;
 }
@@ -52,6 +52,13 @@ h1 {
 h1>i {
   padding: 0 8px;
   box-shadow: inset 0px -24px 0px 0px #FFBC60;
+}
+
+h1::before {
+  display: block;  
+  font-size: 16px;
+  color: #6c6479;
+  content: 'La casa di';
 }
 
 /* BODY HEADINGS */
