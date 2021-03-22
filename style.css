@@ -80,7 +80,7 @@ h3>a {
 }
 
 h3>a::after {
-  content: "->";
+  content: "→";
   transition: all .1s ease-in-out;
   padding-left: 4px;
 }
