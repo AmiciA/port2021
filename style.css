@@ -10,7 +10,7 @@ body {
 }
 
 img {
-  border-radius: 8px;
+  border-radius: 4px;
   max-width: 100%;
 }
 
@@ -24,7 +24,7 @@ a:hover, summary:hover {
 
 
 
-/* ———————————————— HERO ———————————————— */
+/* ———————————————— HERO IMAGERY ———————————————— */
 header {
   margin: 0 0 32px;
 }
@@ -52,6 +52,7 @@ h1 {
 h1>i {
   padding: 0 8px;
   box-shadow: inset 0px -24px 0px 0px #FFBC60;
+  background-color: transparent;
 }
 
 h1::before {
@@ -66,13 +67,10 @@ h2 {
   margin: 80px 0 8px;
 }
 
-/*h2:first-of-type {
-  border-bottom: 1px solid #beb5ce;
-}*/
-
 h3 {
   margin: 24px 0 6px;
   padding-bottom: 0;
+  font-size: 19px
 }
 
 h3>a {
@@ -115,7 +113,8 @@ footer {
 /* UNDERLINE */
 i {
   font-style: normal;
-  box-shadow: inset 0px -10px 0px 0px rgb(255, 188, 96, .3);
+  /*box-shadow: inset 0px -10px 0px 0px rgb(255, 188, 96, .3);*/
+  background-color: rgb(255, 188, 96, .3);
 }
 
 /* TOOLTIP */
@@ -126,81 +125,171 @@ abbr {
   cursor: help;
 }
 
-/* PROJECT DETAILS */
+/* PROJECT CARDS */
+.project {
+  margin: 0 0 40px 0;
+  padding: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 6px 0px rgb(20, 11, 56, .2);
+}
+
+.project:first-of-type {
+  margin-top: 32px;
+}
+
+/* Title area */
+.project > h3 {
+  margin: 0 0 12px;
+}
+
+.logo {
+  display: inline;
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+
+/* Main image */
+.project > img {
+  margin: 0px -16px;
+  max-width: calc(100% + 32px);
+  border-radius: 0;
+}
+
 /* Year, tags, link */
+.project > div {
+  margin: 12px 0;
+}
+
 .stats {
   letter-spacing: 0.01em;
-  margin-bottom: 12px;
   text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  max-width: 75%;
+}
+
+.link {
+  display: block;
+  float: right;
+  max-width: 25%;
   font-size: 14px;
-  color: #6c6479;
-}
-
-.stats>a {
   text-transform: none;
-  color: #6c6479;
-}
-
-.stats>a:hover {
-  color: #be2c00;
-}
-
-.stats>s {
-  text-transform: lowercase;
-  text-decoration: none;
   color: #beb5ce;
 }
 
-/* Logo */
-img.logo {
-  float: left;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  transition: all .15s ease-in-out;
-  box-shadow: 0 2px 3px 0px rgb(20, 11, 56, .3);
-}
-
-img.logo:hover {
-  transform: rotate(-10deg) scale(1.07);
-}
-
-/* PROJECT ACCORDIONS */
-/* Open link */
+/* Expand link */
 summary {
-  margin-top: -6px;
-  padding: 6px 0px;
-  border-radius: 4px 4px 12px 12px;
+  background-color: transparent;
+  margin-top: 0px;
+  padding-left: 12px;
+  margin: 8px -16px -16px;
+  padding: 8px 16px;
+  background-color: rgb(222, 101, 72, .1);
+  outline-color: #de6548;
   cursor: pointer;
   transition: all .1s ease-in-out;
 }
 
 summary:hover {
-  padding: 6px 12px;
+  padding: 8px 24px;
+  background-color: rgb(222, 101, 72, .2);
+}
+
+/* Collapse link */
+.closeit {
+  display: block;
+  max-width: calc(100% + 32px);
+  margin: 0px -16px -16px -16px;
+  padding: 8px 16px 8px;
+  border-radius: 0px 0px 8px 8px;
   background-color: rgb(222, 101, 72, .1);
-}
-
-/* First paragraph */
-details>p:first-of-type {
-  margin-top: 12px;
-}
-
-/* Case study link*/
-details>a {
-  display: inline-block;
-  margin-top: 4px;
-  padding: 6px 0px;
-  border-radius: 4px 4px 12px 12px;
+  outline-color: #de6548;
+  text-align: center;
+  text-decoration: none;
   transition: all .1s ease-in-out;
 }
 
-details>a:hover {
-  padding: 6px 12px;
-  background-color: rgb(222, 101, 72, .1);
-  text-decoration: none;
+.closeit:hover {
+  padding: 5px 16px 11px;
+  background-color: rgb(222, 101, 72, .2);
 }
 
-/* INLINE BUTTON */
+/* Project details */
+details {
+  background-color: #FFBC60;
+  border-radius: 4px 4px 12px 12px;
+  background-color: white;
+}
+
+details > div {
+  margin: 32px 0 0 0;
+}
+
+/* Project details text content */
+h4 {
+  display: inline-block;
+  margin: 32px 0 8px;
+  font-size: 17px;
+  box-shadow: inset 0px -8px 0px 0px rgb(255, 188, 96);
+}
+
+details h4:first-of-type {
+  margin-top: 8px;
+}
+
+details img {
+  margin: 8px 0;
+}
+
+
+
+/* ———————————————— GRID LAYOUT ———————————————— */
+/* General grid area */
+.grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 3-across images (gifs) */
+.threecol {
+  max-width: 33%;
+}
+
+/* 3-across text (additional projects) */
+.threecol.text {
+  max-width: 31%;
+}
+
+.threecol > h4 {
+  margin-top: 16px;
+  box-shadow: none;
+}
+.threecol > h4 > .logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+.threecol > .link {
+  float: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .grid {
+    flex-direction: column;
+  }
+  .threecol.text {
+    max-width: 100%;
+  }
+}
+
+
+
+/* ———————————————— INLINE BUTTON ———————————————— */
 button {
   border-radius: 6px;
   border: 1px solid #de6548;
