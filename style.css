@@ -182,6 +182,17 @@ abbr {
   color: #beb5ce;
 }
 
+@media only screen and (max-width: 500px) {
+  .stats {
+    max-width: 100%
+  }
+  
+  .link {
+    float: none;
+    max-width: 100%;
+  }
+}
+
 /* Expand link */
 summary {
   background-color: transparent;
@@ -279,11 +290,12 @@ details img {
 }
 
 @media only screen and (max-width: 500px) {
-  .grid {
+  .grid.text{
     flex-direction: column;
   }
   .threecol.text {
     max-width: 100%;
+    margin-bottom: 32px;
   }
 }
 
