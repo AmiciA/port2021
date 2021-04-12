@@ -14,11 +14,11 @@
   <!---------------------- HERO IMAGERY ---------------------->
   <h1><i>Anthony Amici</i></h1>
   <header>
-    <abbr title="digital products, from concept to completion">UX designer</abbr> | 
-    <abbr title="small, simple, & web-based">Game developer</abbr> | 
-    <abbr title="EN, DE, ~IT, ~廣東話">Polyglot</abbr> | 
-    <abbr title="trails ≤15k">Runner</abbr> | 
-    <abbr title="光復香港，時代革命">Activist</abbr>
+    <abbr id="abbrDsgn">UX designer</abbr> | 
+    <abbr id="abbrGame">Game developer</abbr> | 
+    <abbr id="abbrLang">Polyglot</abbr> | 
+    <abbr id="abbrRunn">Runner</abbr> | 
+    <abbr id="abbrActv">Activist</abbr>
   </header>
   <img id="top" src="assets/hero/me_scribbles.gif">
   
@@ -298,7 +298,7 @@
   
   <!---------------------- ADDITIONAL CLIENT WORK ---------------------->
   <h3>And other cool projects like:</h3>
-  <div class="grid">
+  <div class="grid text">
     <div class="threecol text">
       <!--<img src="assets/client/HINRICH-0.png"class="threecol">-->
       <h4><img class="logo" src="assets/client/HF-logo.png">Hinrich Foundation</h4>
@@ -314,7 +314,7 @@
     <div class="threecol text">
       <!--<img src="assets/client/HINRICH-0.png"class="threecol">-->
       <h4><img class="logo" src="assets/client/MD-logo.png">Mundial</h4>
-      <p>Designing an efficient and pleasant-to-use e-commerce solution for this multinational kitchenware company.</p>
+      <p>Designing an efficient and pleasent-to-use e-commerce solution for this multinational kitchenware company.</p>
       <a class="link" href="https://mundial.com.hk/en/" target="_blank">mundial.com.hk</a>
     </div>
   </div>
@@ -420,7 +420,17 @@
   
   
   <!---------------------- JAVASCRIPT ---------------------->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
   <script>
+    // Tooltip content
+    tippy('#abbrDsgn', { placement: 'bottom', content: 'Digital products, from concept to completion', });
+    tippy('#abbrGame', { placement: 'bottom', content: 'Small, simple, & web-based', });
+    tippy('#abbrLang', { placement: 'bottom', content: 'EN, DE, ~IT, ~廣東話', });
+    tippy('#abbrRunn', { placement: 'bottom', content: 'Trails ≤15k', });
+    tippy('#abbrActv', { placement: 'bottom', content: '光復香港，時代革命', });
+
+    
     // Copy e-mail address
     function c() { var cTxt = document.getElementById("i");
                    cTxt.select();
