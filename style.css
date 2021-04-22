@@ -6,7 +6,7 @@ body {
   margin: auto;
   padding: 0 20px;
   max-width: 700px;
-  background-image: url(assets/bkg.png);
+  background-image: url(assets/bkg.png); /* Background pattern from Toptal Subtle Patterns */
 }
 
 img {
