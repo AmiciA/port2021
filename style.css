@@ -1,4 +1,11 @@
 /* ———————————————— UNIVERSAL ———————————————— */
+* {
+  -webkit-padding-start: 0px;
+  -moz-padding-start: 0px;
+  padding-start: 0px;
+  padding-inline: 0;
+}
+
 body {
   background: #fafafa;
   font-family: 'IBM Plex Sans', sans-serif;
@@ -36,6 +43,7 @@ header {
 nav ul {
   text-align: center;
   margin: 24px 0 0 0;
+  padding: 0;
 }
 
 @media (max-width: 730px) {
