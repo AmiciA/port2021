@@ -5,7 +5,7 @@ body {
   color: #504a5a;
   margin: auto;
   padding: 0 20px;
-  max-width: 700px;
+  max-width: 800px;
   background-image: url(assets/bkg.png); /* Background pattern from Toptal Subtle Patterns */
 }
 
@@ -15,20 +15,65 @@ img {
 }
 
 a, summary {
-  color: #de6548;
+  color: #f25630;
 }
 
 a:hover, summary:hover {
-  color: #be2c00;
+  color: #ca0000;
 }
+
+
+
+/* ———————————————— NAVIGATION ———————————————— */
+header {
+  margin: 0 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  text-align: center;
+  margin: 24px 0 0 0;
+  padding-inline: 0;
+}
+
+@media (max-width: 730px) {
+  header { flex-direction: column; 
+           margin-bottom: 12px; }
+  nav ul { margin-top: 12px; }
+  nav a  { margin-bottom: 16px; }
+}
+
+nav li {
+  display: inline;
+}
+
+/* NAV TEXT STYLES */
+nav a {
+  display: inline-block;
+  padding: 0em .5em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: wavy underline;
+}
+
+/*nav li:nth-child(1) > a       { color: #DEB448; }
+nav li:nth-child(1) > a:hover { color: #C39B32; }
+nav li:nth-child(2) > a       { color: #78DE48; }
+nav li:nth-child(3) > a       { color: #48A8DE; }
+nav li:nth-child(4) > a       { color: #8A48DE; }
+nav li:nth-child(5) > a       { color: #DE48BD; }*/
+
+
 
 
 
 /* ———————————————— HERO IMAGERY ———————————————— */
-header {
-  margin: 0 0 32px;
-}
-
 img#top {
   background-image: url(assets/hero/me_photo.png),
                     radial-gradient(rgba(250, 250, 250, .00) 25%,
@@ -45,25 +90,15 @@ h1, header, footer { text-align: center; }
 
 h1 {
   font-family: "IBM Plex Serif", serif;
-  font-size: 56px;
-  margin: 32px 0 12px;
-}
-
-h1>i {
-  padding: 0 8px;
-  box-shadow: inset 0px -24px 0px 0px #FFBC60;
-  background-color: transparent;
-}
-
-h1::before {
-  display: block;  
-  font-size: 16px;
-  color: #6c6479;
-  content: 'La casa di';
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 0;
 }
 
 /* BODY HEADINGS */
 h2 {
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 600;
   margin: 80px 0 8px;
 }
 
@@ -95,6 +130,13 @@ blockquote {
   letter-spacing: -.01em;
 }
 
+blockquote.major {
+  font-family: "IBM Plex Serif", serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
 p {
   font-size: 16px;
   line-height: 1.45;
@@ -110,12 +152,15 @@ footer {
 
 
 /* ———————————————— FUNCTIONAL TEXT ———————————————— */
-/* UNDERLINE */
+/* HIGHLIGHT */
 i {
   font-style: normal;
-  /*box-shadow: inset 0px -10px 0px 0px rgb(255, 188, 96, .3);*/
   background-color: rgb(255, 188, 96, .3);
 }
+
+mark { background-color: transparent; }
+mark.A { color: #8A48DE; }
+mark.B { color: #FFBB0D; }
 
 /* TOOLTIP */
 abbr {
@@ -201,7 +246,7 @@ summary {
   margin: 8px -16px -16px;
   padding: 8px 16px;
   background-color: rgb(222, 101, 72, .1);
-  outline-color: #de6548;
+  outline-color: #f25630;
   cursor: pointer;
   transition: all .1s ease-in-out;
 }
@@ -219,7 +264,7 @@ summary:hover {
   padding: 8px 16px 8px;
   border-radius: 0px 0px 8px 8px;
   background-color: rgb(222, 101, 72, .1);
-  outline-color: #de6548;
+  outline-color: #f25630;
   text-align: center;
   text-decoration: none;
   transition: all .1s ease-in-out;
@@ -266,6 +311,10 @@ details img {
   justify-content: space-between;
 }
 
+.twocol {
+  max-width: 48%;
+}
+
 /* 3-across images (gifs) */
 .threecol {
   max-width: 33%;
@@ -274,6 +323,7 @@ details img {
 /* 3-across text (additional projects) */
 .threecol.text {
   max-width: 31%;
+  margin-bottom: 32px;
 }
 
 .threecol > h4 {
@@ -295,7 +345,6 @@ details img {
   }
   .threecol.text {
     max-width: 100%;
-    margin-bottom: 32px;
   }
 }
 
@@ -304,16 +353,21 @@ details img {
 /* ———————————————— INLINE BUTTON ———————————————— */
 button {
   border-radius: 6px;
-  border: 1px solid #de6548;
+  border: 1px solid #f25630;
   font-size: 14px;
   padding: 3px 5px 1px 6px;
-  color: #de6548;
+  color: #f25630;
   cursor: pointer;
+  overflow: hidden;
   background-color: transparent;
   transition: all .1s ease-in-out;
 }
 
 button:hover {
   color: #fff;
-  background-color: #de6548;
+  background-color: #f25630;
+}
+
+button:active {
+  background-color: #fca08a;
 }
