@@ -5,48 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap&text=AacdhiLmnosty%27" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">   
   <link href="style.css" media="screen" rel="stylesheet" type="text/css">
 </head>
     
 <body>
-  <!---------------------- HERO IMAGERY ---------------------->
-  <h1><i>Anthony Amici</i></h1>
-  <header>
-    <abbr id="abbrDsgn">UX designer</abbr> | 
-    <abbr id="abbrGame">Game developer</abbr> | 
-    <abbr id="abbrLang">Polyglot</abbr> | 
-    <abbr id="abbrRunn">Runner</abbr> | 
-    <abbr id="abbrActv">Activist</abbr>
+  <!---------------------- NAVIGATION ---------------------->
+  <header id="top">
+    <h1>Anthony Amici</h1>
+    
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li><a href="#work">Client work</a></li>
+
+        <li><a href="#writing">Writing</a></li>
+
+        <li><a href="#games">Game dev</a></li>
+
+        <li><a href="#others">Other projects</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
+      
+      
+  
+  
+  
+  <!---------------------- HERO IMAGERY ---------------------->    
   <img id="top" src="assets/hero/me_scribbles.gif">
   
   
-  
+
   
   
   <!---------------------- INTRO PARAGRAPHS ---------------------->
-  <h2>🎏 About Me</h2>
-  <blockquote>
-    Anthony Amici (that's me) is a designer from the States—Pennsylvania in particular. I graduated with a BFA in New Media Design from Rochester Institute of Technology in 2016, along the way studying abroad at the Bauhaus in Dessau🇩🇪 and completing an internship in Biel/Bienne🇨🇭.
+  <!--<h2>🎏 About Me</h2>-->
+  <blockquote class="major">
+    Anthony (that's me) is a <mark class="A">digital designer</mark> from the States with 5 years experience making cool stuff at <a href="http://grayscale.com.hk" target="_blank">Grayscale</a> in Hong Kong. Currently looking for meaningful work in <mark class="B">Europe</mark> or <mark class="B">the US</mark> (hit me up!).
   </blockquote>
   
-  <blockquote>
-    I've always been driven by the intersection of <i>creativity and organisation</i> and am happiest working in a multidisciplinary, small team setting on projects where I can bring logical structure and a pleasant user journey to complex systems.
-  </blockquote>
+  <p>I've always been driven by the intersection of creativity and organisation and am happiest working in a multidisciplinary, small team setting on ethical projects where I can bring logical structure to complex systems while delivering a pleasant experience for all users.</p>
   
-  <blockquote>
-    Currently, I am based in the wistfully beautiful Hong Kong🇭🇰 along with <a href="http://hop-design.studio" target="_blank">my wife</a>. If I'm not coding up a new game or working on some personal project, I'll probably be out for a run or hike🏞, playing with our rabbits🐰, or doing something our new overlords wouldn't approve of. 🤬
-  </blockquote>
-  
+  <p>After growing up in Pennsylvania, I graduated with a BFA in New Media Design from <abbr id="abbrRIT">RIT</abbr> in 2016, along the way studying at the Bauhaus in Germany and completing an internship in Biel/Bienne, Switzerland. Now I'm based in the wistfully beautiful Hong Kong along with <a href="http://hop-design.studio" target="_blank">my wife</a>. If I'm not coding up a new game or working on some personal project, I'll probably be out for a run or hike🏞, playing with our bun <a href="https://www.instagram.com/princessmochibun/" target="_blank">Mochi🐰</a>, or doing something our new overlords wouldn't approve of. 🤫</p>
+
   
   
   
   
   <!---------------------- CLIENT WORK ---------------------->
   
-  <h2>💻 Client work</h2>
+  <h2 id="work">💻 Client work</h2>
   <blockquote>
     At present, I am the lead designer at <a href="http://grayscale.com.hk" target="_blank">Grayscale</a>, building websites, apps, and any other little bits and pieces of design to go with them for clients such as Sealy, thyssenkrupp, Mercedes-Benz, and multiple top Hong Kong universities.
   </blockquote>
@@ -300,19 +311,38 @@
   <h3>And other cool projects like:</h3>
   <div class="grid text">
     <div class="threecol text">
-      <!--<img src="assets/client/HINRICH-0.png"class="threecol">-->
+      <h4><img class="logo" src="assets/client/AURA-logo.png">AURA</h4>
+      <p>Measuring employees' stress &amp; resilience with the help of a clinical psychologist.</p>
+      <a class="link" href="https://aura.works/" target="_blank">aura.works</a>
+    </div>
+    
+    <div class="threecol text">
+      <h4><img class="logo" src="assets/client/DHK-logo.png">Debate Hong Kong</h4>
+      <p>Creating a quick logo, identity, and site for this two-person tutoring powerhouse.</p>
+      <a class="link" href="https://debatehk.com/" target="_blank">debatehk.com</a>
+    </div>
+    
+    <div class="threecol text">
       <h4><img class="logo" src="assets/client/HF-logo.png">Hinrich Foundation</h4>
       <p>Conducting user research and prototyping a new web presence for a global trade advocacy group.</p>
       <a class="link" href="https://www.hinrichfoundation.com/" target="_blank">hinrichfoundation.com</a>
     </div>
+  </div>
+
+  <div class="grid text">
     <div class="threecol text">
-      <!--<img src="assets/client/HINRICH-0.png"class="threecol">-->
       <h4><img class="logo" src="assets/client/PG-logo.png">The Pilgrim's Guide</h4>
       <p>Mapping medieval routes and transforming student projects from boring documents to unique portfolio pieces.</p>
       <a class="link" href="https://thepilgrimsguide.com/" target="_blank">thepilgrimsguide.com</a>
     </div>
+    
     <div class="threecol text">
-      <!--<img src="assets/client/HINRICH-0.png"class="threecol">-->
+      <h4><img class="logo" src="assets/client/RP-logo.png">RealPlus</h4>
+      <p>Tried and tested real estate search engine run by a long-term client of Grayscale's.</p>
+      <a class="link" href="https://www.rp.com.hk/" target="_blank">rp.com.hk</a>
+    </div>
+    
+    <div class="threecol text">
       <h4><img class="logo" src="assets/client/MD-logo.png">Mundial</h4>
       <p>Designing an efficient and pleasant-to-use e-commerce solution for this multinational kitchenware company.</p>
       <a class="link" href="https://mundial.com.hk/en/" target="_blank">mundial.com.hk</a>
@@ -323,7 +353,7 @@
   
   
   <!---------------------- WRITING ---------------------->
-  <h2>✒️ Writing</h2>
+  <h2 id="writing">✒️ Writing</h2>
   <blockquote>
     Over the years, I've done some sporadic blogging on design and design-adjacent topics such as <i>health, social interaction, game design, storywriting,</i> and more.
   </blockquote>
@@ -348,7 +378,7 @@
   
   
   <!---------------------- GAME DEVELOPMENT ---------------------->
-  <h2>👾 Game development</h2>
+  <h2 id="games">👾 Game development</h2>
   <blockquote>
     Though not a coder by training, I have picked up some basic skills… which I use to write some <i>cool little games</i> with probably the worst spaghetti Javascript you've ever seen.
   </blockquote>
@@ -369,7 +399,7 @@
   
   
   <!---------------------- PERSONAL PROJECTS ---------------------->
-  <h2>🎨 Other projects</h2>
+  <h2 id="others">🎨 Other projects</h2>
   <blockquote>
     No fancy start-ups or passive income schemes here, just trying to keep that ol' <i>create vs. consume</i> equation in balance with whatever strikes me.
   </blockquote>
@@ -391,7 +421,7 @@
   
   
   <!---------------------- CONTACT ---------------------->
-  <h2>📮 Get in touch</h2>
+  <h2 id="contact">📮 Get in touch</h2>
   <blockquote>
     I am currently looking for new opportunities in the field of design. Feel free to write me at <a href="mailto:amici93@gmail.com" target="_blank">amici93@gmail.com</a> <button onclick="c()">COPY</button> in English, auf Deutsch, in italiano, 或者用中文！
   </blockquote>
@@ -424,11 +454,11 @@
   <script src="https://unpkg.com/tippy.js@6"></script>
   <script>
     // Tooltip content
-    tippy('#abbrDsgn', { placement: 'bottom', content: 'Digital products, from concept to completion', });
-    tippy('#abbrGame', { placement: 'bottom', content: 'Small, simple, & web-based', });
-    tippy('#abbrLang', { placement: 'bottom', content: 'EN, DE, ~IT, ~廣東話', });
+    tippy('#abbrRIT', { placement: 'bottom', content: 'Rochester Institute of Technology, New York', });
+    tippy('#abbrDEU', { placement: 'bottom', content: 'Hochschule Anhalt, Dessau-Roßlau, Germany', });
+    tippy('#abbrCHE', { placement: 'bottom', content: 'Biel/Bienne, Switzerland', });
     tippy('#abbrRunn', { placement: 'bottom', content: 'Trails ≤15k', });
-    tippy('#abbrActv', { placement: 'bottom', content: '光復香港，時代革命', });
+    tippy('#abbrActv', { placement: 'bottom', content: '香港人，加油！🖐️☝️', });
 
     
     // Copy e-mail address
