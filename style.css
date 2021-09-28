@@ -150,6 +150,10 @@ p {
   margin: 0 0 12px;
 }
 
+ul {
+  margin: 0 0 12px 20px;
+}
+
 footer {
   border-top: 1px solid #beb5ce;
   padding-top: 16px;
@@ -228,6 +232,7 @@ abbr {
 .link {
   display: block;
   float: right;
+  margin-bottom: 0;
   max-width: 25%;
   font-size: 14px;
   text-transform: none;
