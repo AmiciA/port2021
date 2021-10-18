@@ -166,12 +166,16 @@ abbr {
 .link {
   font-size: 17px;
   text-transform: none;
-  color: #8A48DE; /* prev #beb5ce */
+  color: #8A48DE;
   
   display: block;
   float: right;
   margin-bottom: 0;
   max-width: 25%;
+}
+
+.pending {
+  color: #beb5ce;
 }
 
 /* RESPONSIVE ———————————————————————————————— */
