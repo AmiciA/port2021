@@ -9,7 +9,7 @@
 }
 
 body {
-  background: #fafafa;
+  background: #F1F0F5;
   margin: auto;
   padding: 0 20px;
   max-width: 900px; /* was 800px */
@@ -38,6 +38,7 @@ hr {
 body {
   font-family: 'Mada', sans-serif;
   color: #504a5a;
+  /* other attributes in previous section */
 }
 
 p, summary, li {
