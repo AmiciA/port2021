@@ -441,11 +441,10 @@ details img {
 }
 
 .arrowAnim:before {
-  content: "🡢";
+  content: "🌏";
   display: inline-block;
-  padding: 1px 3px 0px 5px;
+  padding: 2px 4px;
   border-radius: 100px;
-  width: 1rem;
   font-size: 14px;
   font-weight: bolder;
   color: #6E4FE8;
@@ -459,11 +458,10 @@ details img {
 }
 
 @keyframes changeLetter {
-    0% { content: "🡢"; }
-   50% { content: "🡥"; }
-   62% { content: "🡢"; }
-   75% { content: "🡦"; }
-  100% { content: "🡢"; }
+    0% { content: "🌏"; }
+   33% { content: "🌍"; }
+   66% { content: "🌎"; }
+  100% { content: "🌏"; }
 }
 
 .introR {
@@ -478,7 +476,8 @@ details img {
   .threecol.text    { max-width: 100%; }
   .introL, .introR  { max-width: 100%; }
   .introL > h2      { margin-bottom: 8px; }
-  .arrowAnim        { padding-bottom: 5px; }
+  .arrowAnim        { padding: 5px; }
+  .arrowAnim:before { padding: 1px 2px; }
 }
 
 
