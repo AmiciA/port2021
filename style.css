@@ -145,7 +145,6 @@ mark.A { color: #FFBB0D; }
 mark.B { color: #f25630; font-weight: 700; }
 mark.C { font-family: 'Noto Sans HK', sans-serif; font-size: smaller; }
 
-
 /* TOOLTIPS ———————————————————————————————— */
 abbr {
   text-decoration: none;
@@ -338,13 +337,13 @@ summary {
   padding: 8px 16px;
   cursor: pointer;
   transition: all .1s ease-in-out;
-  background-color: rgb(138, 74, 222, .1);
+  background-color: rgba(138, 74, 222, .1);
   outline-color: #6E4FE8;
 }
 
 summary:hover {
   padding: 8px 24px;
-  background-color: rgb(138, 74, 222, .2);
+  background-color: rgba(138, 74, 222, .2);
 }
 
 /* COLLAPSE LINK ———————————————————————————————— */
@@ -357,13 +356,13 @@ summary:hover {
   text-align: center;
   text-decoration: none;
   transition: all .1s ease-in-out;
-  background-color: rgb(138, 74, 222, .1);
+  background-color: rgba(138, 74, 222, .1);
   outline-color: #f25630;
 }
 
 .closeit:hover {
   padding: 5px 16px 11px;
-  background-color: rgb(138, 74, 222, .2);
+  background-color: rgba(138, 74, 222, .2);
 }
 
 /* EXPANDED PROJECT AREA ———————————————————————————————— */
@@ -425,11 +424,46 @@ details img {
 .introL {
   max-width: 35%;
   margin-right: 24px;
+  margin-bottom: 32px;
 }
 
 .introL > h2 {
-  margin: 0 0 24px;
+  margin: 0 0 16px;
   line-height: 1.3;
+}
+
+.arrowAnim {
+  background-color: white;
+  padding: 4px;
+  border-radius: 100px;
+  display: inline;
+  padding-right: 8px;
+}
+
+.arrowAnim:before {
+  content: "🡢";
+  display: inline-block;
+  padding: 1px 3px 0px 5px;
+  border-radius: 100px;
+  width: 1rem;
+  font-size: 14px;
+  font-weight: bolder;
+  color: #6E4FE8;
+  background-color: rgb(138, 74, 222, .1);
+  transition: background-color .5s ease-in-out;
+}
+
+.arrowAnim:hover:before {
+  animation: changeLetter 1.5s linear infinite;
+  background-color: rgb(138, 74, 222, .2);
+}
+
+@keyframes changeLetter {
+    0% { content: "🡢"; }
+   50% { content: "🡥"; }
+   62% { content: "🡢"; }
+   75% { content: "🡦"; }
+  100% { content: "🡢"; }
 }
 
 .introR {
@@ -440,9 +474,11 @@ details img {
 /* RESPONSIVE ———————————————————————————————— */
 /* Intro 2/3 text area */
 @media only screen and (max-width: 600px) {
-  .grid.text       { flex-direction: column; }
-  .threecol.text   { max-width: 100%; }
-  .introL, .introR { max-width: 100%; }
+  .grid.text        { flex-direction: column; }
+  .threecol.text    { max-width: 100%; }
+  .introL, .introR  { max-width: 100%; }
+  .introL > h2      { margin-bottom: 8px; }
+  .arrowAnim        { padding-bottom: 5px; }
 }
 
 
