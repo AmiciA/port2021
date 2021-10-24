@@ -64,7 +64,7 @@ h1, h2 {
 }
 
 h1 {
-  color: #8A48DE;
+  color: #6E4FE8;
   font-size: 32px;
   /* other attributes in next section */
 }
@@ -115,7 +115,7 @@ details h4:first-of-type {
 
 /* LINKS ———————————————————————————————— */
 a, summary {
-  color: #8A48DE;
+  color: #6E4FE8;
 }
 
 a:hover, summary:hover {
@@ -133,7 +133,7 @@ nav a {
 nav a:hover {
   text-decoration: wavy underline;
   color: #504a5a;
-  text-decoration-color: #8A48DE;
+  text-decoration-color: #6E4FE8;
 }
 
 /* HIGHLIGHTS ———————————————————————————————— */
@@ -167,7 +167,7 @@ abbr {
 .link {
   font-size: 17px;
   text-transform: none;
-  color: #8A48DE;
+  color: #6E4FE8;
   
   display: block;
   float: right;
@@ -339,7 +339,7 @@ summary {
   cursor: pointer;
   transition: all .1s ease-in-out;
   background-color: rgb(138, 74, 222, .1);
-  outline-color: #8A48DE;
+  outline-color: #6E4FE8;
 }
 
 summary:hover {
@@ -454,10 +454,10 @@ details img {
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
 button {
   border-radius: 6px;
-  border: 1px solid #8A48DE;
+  border: 1px solid #6E4FE8;
   font-size: 14px;
   padding: 3px 5px 1px 6px;
-  color: #8A48DE;
+  color: #6E4FE8;
   cursor: pointer;
   overflow: hidden;
   background-color: transparent;
@@ -466,7 +466,7 @@ button {
 
 button:hover {
   color: #ffffff;
-  background-color: #8A48DE;
+  background-color: #6E4FE8;
 }
 
 button:active {
