@@ -115,11 +115,11 @@ details h4:first-of-type {
 
 /* LINKS ———————————————————————————————— */
 a, summary {
-  color: #6E4FE8;
+  color: #a02110;
 }
 
 a:hover, summary:hover {
-  color: #4f0ba5;
+  color: #bc5142;
 }
 
 /* Header navigation text styles */
