@@ -450,7 +450,7 @@ details img {
   color: #6E4FE8;
 }
 
-.locAnim:hover:before {
+.locAnim:before {
   animation: changeLetter 1.5s linear infinite;
 }
 
