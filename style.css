@@ -23,7 +23,7 @@ body {
   margin: auto;
   padding: 0 20px;
   max-width: 900px; /* was 800px */
-  background-image: url(assets/bkg.gif);
+  /* background-image: url(assets/bkg.gif); */
 }
 
 img {
