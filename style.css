@@ -8,12 +8,22 @@
   padding-inline: 0;
 }
 
+@font-face { 
+  font-family: "Pocod"; 
+  src: url("fonts/pocod.ttf"); 
+} 
+
+@font-face { 
+  font-family: "m5x7"; 
+  src: url("fonts/m5x7.ttf"); 
+}
+
 body {
   background: #F1F0F5;
   margin: auto;
   padding: 0 20px;
   max-width: 900px; /* was 800px */
-  background-image: url(assets/bkg.png);
+  background-image: url(assets/bkg.gif);
 }
 
 img {
@@ -36,14 +46,14 @@ hr {
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
 /* PRIMARY BODY COPY ———————————————————————————————— */
 body {
-  font-family: 'Mada', sans-serif;
+  font-family: 'm5x7', sans-serif;
   color: #dad8de;
   /* other attributes in previous section */
 }
 
 p, summary, li {
-  font-size: 19px;
-  line-height: 1.55;
+  font-size: 24px;
+  line-height: 1.25;
 }
 
 p {
@@ -60,11 +70,11 @@ li {
 
 /* HEADERS ———————————————————————————————— */
 h1, h2 {
-  font-family: "Petrona", serif;
+  font-family: "Pocod", monospace;
 }
 
 h1 {
-  color: #a02110;
+  color: #ef8937;
   font-size: 32px;
   /* other attributes in next section */
 }
@@ -115,11 +125,11 @@ details h4:first-of-type {
 
 /* LINKS ———————————————————————————————— */
 a, summary {
-  color: #a02110;
+  color: #ef8937;
 }
 
 a:hover, summary:hover {
-  color: #bc5142;
+  color: #ffffff;
 }
 
 /* Header navigation text styles */
