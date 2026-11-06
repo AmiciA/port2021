@@ -488,6 +488,7 @@ details img {
   width: 100%;
   background: blue;
   margin-bottom: 0px;
+  cursor: pointer;
   /*border: 1px solid #504a5a;
   border-top: 0px;
   /*border-radius: 0 0 4px 4px;*/
