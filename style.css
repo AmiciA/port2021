@@ -472,7 +472,7 @@ details img {
 .introL > h2 {
   color: #dad8de;
   margin-top: -10px;
-  /*border-radius: 0 0 4px 4px;*/
+  border-radius: 0 0 4px 4px;
   padding: 12px 16px;
   line-height: 1;
   border: 1px solid #504a5a;
@@ -483,35 +483,33 @@ details img {
   margin: -10px 0 0 0;
 }
 
-.introL a {
+.introL > div > a {
   display: block;
-  width: 100%;
-  background: blue;
   margin-bottom: 0px;
-  cursor: pointer;
-  /*border: 1px solid #504a5a;
+  border: 1px solid #504a5a;
   border-top: 0px;
-  /*border-radius: 0 0 4px 4px;*/
-  /*margin: -2px 0 0 0;*/
-  /*padding: 8px 12px;*/
-  /*text-decoration: none;*/
+  border-radius: 0 0 4px 4px;
+  margin: -2px 0 0 0;
+  padding: 8px 12px;
+  text-decoration: none;
 }
 
 .introL > div > a:hover {
-  /*background-color: rgb(242, 182, 32, .25);*/
+  background-color: rgb(242, 182, 32);
+  color: #111111;
   /*border-top: 1px dashed #504a5a;*/
   /*margin: -3px 0 0 0;*/
 }
 
-/*.introL > div > a::after {
+.introL > div > a::after {
   content: "->";
   transition: all .1s ease-in-out;
   padding-left: 4px;
 }
 
 .introL > div > a:hover::after {
-  padding-left: 8px;
-}*/
+  padding-left: 12px;
+}
 
 .locAnim {
   display: inline-block;
