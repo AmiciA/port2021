@@ -158,17 +158,22 @@ a:hover, summary:hover {
 }
 
 /* Header navigation text styles */
-nav a {
-  font-size: 19px;
+#portlink {
+  font-family: "m5x7", monospace;
+  font-size: 20px;
   text-decoration: none;
   color: #504a5a;
-  /* other attributes in next section */
 }
 
-nav a:hover {
+#portlink:hover {
   text-decoration: wavy underline;
   color: #504a5a;
-  text-decoration-color: #6E4FE8;
+  text-decoration-color: #f2b620;
+}
+
+footer p {
+  font-family: "m5x7", monospace;
+  font-size: 20px;
 }
 
 /* HIGHLIGHTS ———————————————————————————————— */
@@ -188,31 +193,6 @@ abbr {
   cursor: help;
 }
 
-/* PROJECT CARD INTRO DETAILS ———————————————————————————————— */
-.stats {
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 700;
-  
-  max-width: 75%;
-}
-
-.link {
-  font-size: 17px;
-  text-transform: none;
-  color: #6E4FE8;
-  
-  display: block;
-  float: right;
-  margin-bottom: 0;
-  max-width: 25%;
-}
-
-.pending {
-  color: #beb5ce;
-}
-
 /* RESPONSIVE ———————————————————————————————— */
 @media (max-width: 730px) {
   nav a          { font-size: 17px; }
@@ -230,16 +210,11 @@ abbr {
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
 /* ——————————————————————————————————— HEADER & FOOTER ———————————————————————————————————— */
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* COMMON ———————————————————————————————— */
-header, footer {
-  text-align: center;
-}
-
 /* HEADER ———————————————————————————————— */
 header {
   margin: 24px 0 48px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -250,168 +225,16 @@ h1 {
   margin-right: 16px;
 }
 
-nav ul {
-  text-align: center;
-  margin: 24px 0 0 0;
-  padding: 0;
-}
-
-nav li {
-  display: inline;
-}
-
-nav ul li:first-child a {
-  padding-left: 0;
-}
-
-nav a {
-  /* font attributes in previous section */
-  display: inline-block;
-  padding: 0em .5em;
-}
-
 /* FOOTER */
 footer {
-  border-top: 1px solid #beb5ce;
-  padding-top: 16px;
-  margin-top: 40px;
+  text-align: center;
+  margin-top: 24px;
 }
 
 /* RESPONSIVE ———————————————————————————————— */
 @media (max-width: 730px) {
   header { flex-direction: column; 
            margin: 0 0 12px; }
-  nav ul { margin-top: 12px; }
-  nav a  { margin-bottom: 16px; }
-}
-
-
-
-
-
-/* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* —————————————————————————————————————— HERO IMAGE —————————————————————————————————————— */
-/* ———————————————————————————————————————————————————————————————————————————————————————— */
-img#top {
-  background-image: url(assets/hero/me_photo.png),
-                    radial-gradient(rgba(241, 240, 245, .00) 25%,
-                                    rgba(241, 240, 245, .50) 50%),
-                    url(assets/hero/me_bubbles.gif);
-  background-size: cover;
-  margin: 0 auto 48px; /* new, to centre when container over 800px wide */
-  display: block;
-}
-
-
-
-
-
-/* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* ———————————————————————————————————— PROJECT CARDS ————————————————————————————————————— */
-/* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* CARD BACKGROUND ———————————————————————————————— */
-.project {
-  margin: 0 0 50px 0;
-  padding: 16px;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: #FFFFFF;
-  box-shadow: 0px 0.6px 0.6px rgba(20, 11, 56, 0.008),
-              0px 1.3px 1.3px rgba(20, 11, 56, 0.012),
-              0px 2.5px 2.5px rgba(20, 11, 56, 0.015),
-              0px 4.5px 4.5px rgba(20, 11, 56, 0.018),
-              0px 8.4px 8.4px rgba(20, 11, 56, 0.022),
-              0px 20px  20px  rgba(20, 11, 56, 0.030);
-}
-
-.project:first-of-type {
-  margin-top: 32px;
-}
-
-/* TITLE AREA ———————————————————————————————— */
-.logo {
-  display: inline;
-  float: left;
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-  border-radius: 100px;
-}
-
-/* MAIN PROJECT IMAGE ———————————————————————————————— */
-.project > img {
-  margin: 0px -16px;
-  max-width: calc(100% + 32px);
-  border-radius: 0;
-}
-
-/* YEAR, TAGS, LINK */
-.project > div {
-  margin: 12px 0;
-}
-
-/* RESPONSIVE ———————————————————————————————— */
-@media only screen and (max-width: 500px) {
-  .stats { max-width: 100% }
-  .link  { float: none;
-           max-width: 100%; }
-}
-
-
-
-
-/* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* ———————————————————————————————————— EXPAND PROJECT ———————————————————————————————————— */
-/* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* EXPAND LINK ———————————————————————————————— */
-summary {
-  background-color: transparent;
-  margin-top: 0px;
-  padding-left: 12px;
-  margin: 8px -16px -16px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: all .1s ease-in-out;
-  background-color: rgba(138, 74, 222, .1);
-  outline-color: #6E4FE8;
-}
-
-summary:hover {
-  padding: 8px 24px;
-  background-color: rgba(138, 74, 222, .2);
-}
-
-/* COLLAPSE LINK ———————————————————————————————— */
-.closeit {
-  display: block;
-  max-width: calc(100% + 32px);
-  margin: 0px -16px -16px -16px;
-  padding: 8px 16px 8px;
-  border-radius: 0px 0px 8px 8px;
-  text-align: center;
-  text-decoration: none;
-  transition: all .1s ease-in-out;
-  background-color: rgba(138, 74, 222, .1);
-  outline-color: #f25630;
-}
-
-.closeit:hover {
-  padding: 5px 16px 11px;
-  background-color: rgba(138, 74, 222, .2);
-}
-
-/* EXPANDED PROJECT AREA ———————————————————————————————— */
-details {
-  border-radius: 4px 4px 12px 12px;
-  background-color: #ffffff;
-}
-
-details > div {
-  margin: 32px 0 0 0;
-}
-
-details img {
-  margin: 8px 0;
 }
 
 
@@ -497,8 +320,6 @@ details img {
 .introL > div > a:hover {
   background-color: rgb(242, 182, 32);
   color: #111111;
-  /*border-top: 1px dashed #504a5a;*/
-  /*margin: -3px 0 0 0;*/
 }
 
 .introL > div > a::after {
@@ -511,17 +332,14 @@ details img {
   padding-left: 12px;
 }
 
+/* Spinny globe */
 .locAnim {
   display: inline-block;
 }
 
 .locAnim:before {
   content: "🌏";
-  display: inline-block;
-  border-radius: 100px;
-  font-size: 16px;
-  font-weight: bolder;
-  color: #6E4FE8;
+  font-size: 20px;
 }
 
 .locAnim:before {
@@ -556,9 +374,138 @@ details img {
 
 
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
+/* —————————————————————————————————————— HERO IMAGE —————————————————————————————————————— */
+/* ———————————————————————————————————————————————————————————————————————————————————————— */
+/*img#top {
+  background-image: url(assets/hero/me_photo.png),
+                    radial-gradient(rgba(241, 240, 245, .00) 25%,
+                                    rgba(241, 240, 245, .50) 50%),
+                    url(assets/hero/me_bubbles.gif);
+  background-size: cover;
+  margin: 0 auto 48px;
+  display: block;
+}*/
+
+
+
+
+
+/* ———————————————————————————————————————————————————————————————————————————————————————— */
+/* ———————————————————————————————————— PROJECT CARDS ————————————————————————————————————— */
+/* ———————————————————————————————————————————————————————————————————————————————————————— */
+/* CARD BACKGROUND ———————————————————————————————— */
+/*.project {
+  margin: 0 0 50px 0;
+  padding: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0.6px 0.6px rgba(20, 11, 56, 0.008),
+              0px 1.3px 1.3px rgba(20, 11, 56, 0.012),
+              0px 2.5px 2.5px rgba(20, 11, 56, 0.015),
+              0px 4.5px 4.5px rgba(20, 11, 56, 0.018),
+              0px 8.4px 8.4px rgba(20, 11, 56, 0.022),
+              0px 20px  20px  rgba(20, 11, 56, 0.030);
+}
+
+.project:first-of-type {
+  margin-top: 32px;
+}
+
+/* TITLE AREA ———————————————————————————————— */
+/*.logo {
+  display: inline;
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+
+/* MAIN PROJECT IMAGE ———————————————————————————————— */
+/*.project > img {
+  margin: 0px -16px;
+  max-width: calc(100% + 32px);
+  border-radius: 0;
+}
+
+/* YEAR, TAGS, LINK */
+/*.project > div {
+  margin: 12px 0;
+}
+
+/* RESPONSIVE ———————————————————————————————— */
+/*@media only screen and (max-width: 500px) {
+  .stats { max-width: 100% }
+  .link  { float: none;
+           max-width: 100%; }
+}
+
+
+
+
+/* ———————————————————————————————————————————————————————————————————————————————————————— */
+/* ———————————————————————————————————— EXPAND PROJECT ———————————————————————————————————— */
+/* ———————————————————————————————————————————————————————————————————————————————————————— */
+/* EXPAND LINK ———————————————————————————————— */
+/*summary {
+  background-color: transparent;
+  margin-top: 0px;
+  padding-left: 12px;
+  margin: 8px -16px -16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+  background-color: rgba(138, 74, 222, .1);
+  outline-color: #6E4FE8;
+}
+
+summary:hover {
+  padding: 8px 24px;
+  background-color: rgba(138, 74, 222, .2);
+}
+
+/* COLLAPSE LINK ———————————————————————————————— */
+/*.closeit {
+  display: block;
+  max-width: calc(100% + 32px);
+  margin: 0px -16px -16px -16px;
+  padding: 8px 16px 8px;
+  border-radius: 0px 0px 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .1s ease-in-out;
+  background-color: rgba(138, 74, 222, .1);
+  outline-color: #f25630;
+}
+
+.closeit:hover {
+  padding: 5px 16px 11px;
+  background-color: rgba(138, 74, 222, .2);
+}
+
+/* EXPANDED PROJECT AREA ———————————————————————————————— */
+/*details {
+  border-radius: 4px 4px 12px 12px;
+  background-color: #ffffff;
+}
+
+details > div {
+  margin: 32px 0 0 0;
+}
+
+details img {
+  margin: 8px 0;
+}
+
+
+
+
+
+/* ———————————————————————————————————————————————————————————————————————————————————————— */
 /* ———————————————————————————————————— INLINE BUTTON ————————————————————————————————————— */
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
-button {
+/*button {
   border-radius: 6px;
   border: 1px solid #6E4FE8;
   font-size: 14px;
