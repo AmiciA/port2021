@@ -47,7 +47,8 @@ body {
   background: url(assets/bkg.gif), #0f0f10;
   margin: auto;
   padding: 0 20px;
-  max-width: 900px; /* was 800px */
+  max-width: 900px;
+  color: #dad8de;
 }
 
 img {
@@ -68,52 +69,39 @@ hr {
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
 /* ————————————————————————————————————— TYPE STYLES —————————————————————————————————————— */
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* PRIMARY BODY COPY ———————————————————————————————— */
-body {
-  color: #dad8de;
-  /* other attributes in previous section */
-}
 
-p, summary, li {
-  font-size: 24px;
-  line-height: 1.25;
-}
 
 p {
-  font-family: 'Inria Serif', sans-serif;
+  font-family: 'Inria Serif', serif;
   font-weight: normal;
   letter-spacing: 1;
   font-size: 17px;
   line-height: 1.7;
-  margin: 0 0 12px;
+  margin: 0 0 24px;
 }
 
-ul {
-  margin: 0 0 12px 20px;
-}
-
-li {
-  margin-bottom: 8px;
+.italic {
+  font-style: italic;
 }
 
 /* HEADERS ———————————————————————————————— */
-h1 {
-  font-family: "Pocod", monospace;
-  color: #f2b620;
-  font-size: 32px;
-}
+
 
 h2 {
   font-family: "m5x7", monospace;
-  font-size: 28px;
+  font-size: 48px;
+  font-weight: 300;
   line-height: 1;
-  margin: 0 0 8px;
+  margin: 0 0 16px 0;
 }
 
+
+
 h3 {
-  font-size: 21px;
+  font-family: "m5x7", monospace;
+  font-size: 36px;
+  font-weight: 300;
   margin: 32px 0 6px;
-  padding-bottom: 0;
 }
 
 h3 > a {
@@ -137,11 +125,17 @@ h3 > a:hover::after {
 
 /* Project details H4 (section header) */
 h4 {
-  font-size: 19px;
-  box-shadow: inset 0px -12px 0px 0px rgb(138, 74, 222, .15);
-  
-  display: inline-block;
-  margin: 32px 0 8px;
+  font-family: 'Inria Serif', serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 32px 0 6px;
+}
+
+h5 {
+  font-family: 'Inria Serif', serif;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 0;
 }
 
 details h4:first-of-type {
@@ -156,34 +150,6 @@ a, summary {
 a:hover, summary:hover {
   color: #ffffff;
 }
-
-/* Header navigation text styles */
-#portlink {
-  font-family: "m5x7", monospace;
-  font-size: 20px;
-  text-decoration: none;
-  color: #504a5a;
-}
-
-#portlink:hover {
-  text-decoration: wavy underline;
-  color: #504a5a;
-  text-decoration-color: #f2b620;
-}
-
-footer p {
-  font-family: "m5x7", monospace;
-  font-size: 20px;
-}
-
-/* HIGHLIGHTS ———————————————————————————————— */
-i      { font-style: normal;
-         background-color: rgb(255, 188, 96, .3); }
-
-mark   { background-color: transparent; }
-mark.A { color: #FFBB0D; }
-mark.B { color: #f25630; font-weight: 700; }
-mark.C { font-family: 'Noto Sans HK', sans-serif; font-size: smaller; }
 
 /* TOOLTIPS ———————————————————————————————— */
 abbr {
@@ -210,7 +176,7 @@ abbr {
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
 /* ——————————————————————————————————— HEADER & FOOTER ———————————————————————————————————— */
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* HEADER ———————————————————————————————— */
+/* HEADER ————————————————————————————————————————————————————————————————————————————————— */
 header {
   margin: 24px 0 48px;
   display: flex;
@@ -220,18 +186,42 @@ header {
 }
 
 h1 {
-  /* font attributes in previous section */
   margin-bottom: 0;
   margin-right: 16px;
+  font-family: "Pocod", monospace;
+  color: #f2b620;
+  font-size: 32px;
 }
 
-/* FOOTER */
+h1 > a {
+  text-decoration: none;
+}
+
+#portlink {
+  font-family: "m5x7", monospace;
+  font-size: 20px;
+  text-decoration: none;
+  color: #504a5a;
+}
+
+#portlink:hover {
+  text-decoration: wavy underline;
+  color: #504a5a;
+  text-decoration-color: #f2b620;
+}
+
+/* FOOTER ————————————————————————————————————————————————————————————————————————————————— */
 footer {
   text-align: center;
   margin-top: 24px;
 }
 
-/* RESPONSIVE ———————————————————————————————— */
+footer p {
+  font-family: "m5x7", monospace;
+  font-size: 20px;
+}
+
+/* RESPONSIVE ————————————————————————————————————————————————————————————————————————————— */
 @media (max-width: 730px) {
   header { flex-direction: column; 
            margin: 0 0 12px; }
@@ -244,55 +234,27 @@ footer {
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
 /* ————————————————————————————————————— GRID LAYOUT —————————————————————————————————————— */
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
-/* GENERAL GRID AREA ———————————————————————————————— */
+/* GENERAL GRID AREA —————————————————————————————————————————————————————————————————————— */
 .grid {
   display: flex;
   justify-content: space-between;
 }
 
-.twocol {
-  max-width: 48%;
-}
-
-/* 3-across images (gifs) */
-.threecol {
-  max-width: 33%;
-}
-
-/* 3-across text (additional projects) */
-.threecol.text {
-  max-width: 31%;
-  margin-bottom: 32px;
-}
-
-.threecol > h4 {
-  margin-top: 16px;
-  box-shadow: none;
-}
-.threecol > h4 > .logo {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
-.threecol > .link {
-  float: none;
-}
-
-/* Intro 2/3 text area */
-.introL {
+/* LEFT RAIL —————————————————————————————————————————————————————————————————————————————— */
+.railLeft {
+  width: 100%;
   max-width: 35%;
-  margin-right: 24px;
   margin-bottom: 32px;
   font-family: 'm5x7', sans-serif;
   font-size: 28px;
 }
 
-.introL > img {
+.railLeft > img {
   border: 1px solid #504a5a;
   width: 99.5%;
 }
 
-.introL > h2 {
+.railLeft > .flavourText {
   color: #dad8de;
   margin-top: -10px;
   border-radius: 0 0 4px 4px;
@@ -302,11 +264,7 @@ footer {
   border-top: 0px;
 }
 
-.introL > div {
-  margin: -10px 0 0 0;
-}
-
-.introL > div > a {
+.railLeft > .mainLinks > a {
   display: block;
   margin-bottom: 0px;
   border: 1px solid #504a5a;
@@ -317,18 +275,18 @@ footer {
   text-decoration: none;
 }
 
-.introL > div > a:hover {
+.railLeft > div > a:hover {
   background-color: rgb(242, 182, 32);
   color: #111111;
 }
 
-.introL > div > a::after {
+.railLeft > div > a::after {
   content: "->";
   transition: all .1s ease-in-out;
   padding-left: 4px;
 }
 
-.introL > div > a:hover::after {
+.railLeft > div > a:hover::after {
   padding-left: 12px;
 }
 
@@ -353,24 +311,83 @@ footer {
   100% { content: "🌏"; }
 }
 
-.introR {
+/* Subordinate page styles */
+.railLeft > .subpageTitle {
+  border-radius: 4px 4px 0 0;
+  padding: 16px 16px 12px;
+  border: 1px solid #504a5a;
+  font-family: "Pocod", monospace;
+  font-size: 20px;
+  line-height: 1;
+  background-color: #dad8de;
+  color: #111111;
+}
+
+.railLeft > .subpageTitle > div {
+  font-family: "m5x7", monospace;
+  font-size: 20px;
+  color: #504a5a;
+  line-height: 1;
+}
+
+a.current {
+  color: #dad8de;
+}
+
+/* RIGHT CONTENT AREA ————————————————————————————————————————————————————————————————————— */
+.contentRight {
   max-width: 60%;
   margin-top: 2px;
 }
 
-/* RESPONSIVE ———————————————————————————————— */
-/* Intro 2/3 text area */
-@media only screen and (max-width: 600px) {
-  .grid.text        { flex-direction: column; }
-  .threecol.text    { max-width: 100%; }
-  .introL, .introR  { max-width: 100%; }
-  .introL > h2      { margin-bottom: 8px; }
-  .locAnim          { padding: 1px 12px 0px 1px; }
-  .locAnim:before   { padding: 1px 2px; }
+.divider {
+  font-family: "Pocod", monospace;
+  color: #f2b620;
+  text-align: center;
 }
 
+.alert {
+  color: #a02110; !important
+}
 
+/* MULTICOLUMN ———————————————————————————————————————————————————————————————————————————— */
+/*.twocol {
+  max-width: 48%;
+}
 
+/* 3-across images (gifs) */
+/*.threecol {
+  max-width: 33%;
+}
+
+/* 3-across text (additional projects) */
+/*.threecol.text {
+  max-width: 31%;
+  margin-bottom: 32px;
+}
+
+.threecol > h4 {
+  margin-top: 16px;
+  box-shadow: none;
+}
+.threecol > h4 > .logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+.threecol > .link {
+  float: none;
+}
+
+/* RESPONSIVE ————————————————————————————————————————————————————————————————————————————— */
+@media only screen and (max-width: 600px) {
+  .grid.text                { flex-direction: column; }
+  .threecol.text            { max-width: 100%; }
+  .railLeft, .contentRight  { max-width: 100%; }
+  .railLeft > h2            { margin-bottom: 8px; }
+  .locAnim                  { padding: 1px 12px 0px 1px; }
+  .locAnim:before           { padding: 1px 2px; }
+}
 
 
 /* ———————————————————————————————————————————————————————————————————————————————————————— */
