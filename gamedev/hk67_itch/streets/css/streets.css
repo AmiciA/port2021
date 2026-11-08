@@ -1,0 +1,115 @@
+/* ----- TIMER BAR ----- */
+#timerBar {
+  position: absolute;
+  width: 816px;
+  height: 6px;
+  left: 50%;
+  bottom: 0;
+  margin: 0 auto;
+  margin-left: -408px;
+  margin-bottom: -20px;
+  background-color: #020714;
+  border-radius: 10px;
+}
+
+#timerTime {
+  width: 1%;
+  height: 6px;
+  background-color: #faf3e2;
+  border-radius: 10px;
+}
+
+
+
+/* ----- ACTION BUTTONS AMMO ADD-ON ----- */
+#streetsBtns {
+  position: absolute;
+  top: 0;
+  width: 125px;
+  height: 500px;
+}
+
+.btnStreetAction {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 13px 10px;
+  padding: 11px 14px 20px 14px;
+}
+
+#btnTear, #btnBaton { padding-bottom: 11px; }
+
+.ammoholder {
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.ammo {
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: #faf3e2;
+  border: 1.5px solid #faf3e2;
+}
+
+
+
+/* ----- UNIVERSAL RIOT BAR STYLES ----- */
+.riotBars {
+  position: absolute;
+  margin: 0 auto;
+  padding: 24px;
+  /*background-color: rgba(75, 125, 200, .15);*/
+}
+
+.riotBarCurrs {
+  background-color: #ea5d4a;
+  background-size: 20px 20px;
+}
+
+.riotBarEndpoints {
+  /*background-color: rgb(187, 53, 35, .2);*/
+}
+
+
+
+/* ----- ANIMATED RIOT BAR PROGRESS FOLLOWERS' POSITIONS ----- */
+.progImg {
+  position : relative;
+  width:48px;
+  height:48px;
+  pointer-events: none;
+}
+
+.progImg.right {
+  margin-right: -24px;
+  margin-top: -24px;
+  float: right;
+}
+
+.progImg.left {
+  transform: rotate(180deg);
+  margin-right: -24px;
+  margin-top: -6px;
+  float: right;
+  position: relative;
+}
+
+.progImg.up {
+  transform: rotate(180deg);
+  margin-left: -12px;
+  margin-bottom: -18px;
+}
+
+.progImg.down {
+  margin-left: -18px;
+  margin-bottom: -6px;
+}
+
+.progImgDownParent {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <title>Hong Kong '67</title>
+    
+	<meta charset="utf-8">
+  <meta name="author" content="*AAmici">
+  <meta name="description" content="A game about the 1967 Hong Kong riots.">
+	
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+  <link href="css/general.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="css/map.css" media="screen" rel="stylesheet" type="text/css">
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/general.js" defer></script>
+  <script src="js/map.js" defer></script>
+</head>
+    
+<body>
+  <!-------------------- SOUNDS & MUSIC -------------------->
+  <audio id = 'sndClick' src='audio/beep.mp3'></audio>
+  <audio id = 'sndBGMMain' src="audio/riot.mp3" loop></audio>
+  <audio id = 'sndBGMMap' src="audio/mapmusic.mp3" loop></audio>
+  
+  
+  
+  <div id="gameHolder">
+    <!-------------------- UI ELEMENTS -------------------->
+    <!-- Scorecard -->
+    <div id="scoreHolder">
+      <div class="scoreIndivid">
+        <div class="scoreTitle">LOCAL<br>MORALE</div>
+      </div>
+        <div class="scoreIndivid">
+          <span id="scoreP">&nbsp;</span>
+          <span class="scoreTitle">PUBLIC</span>
+        </div>
+        <div class="scoreIndivid">
+          <span id="scoreR">&nbsp;</span>
+          <span class="scoreTitle">RIOTERS</span>
+        </div>
+    </div>
+    
+    <!-------------------- GAME SPLASH -------------------->
+    <!-- Buttons -->
+    <img id="introHider" class="fullscreen opaque" src="assets/intro/bkg.gif">
+    <div id="btnStartGame" class="btn btnLite btnBig togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">Play game</div>
+    <!--<div id="btnStartMusic" class="btn btnLite btnSml btnThin togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">Music on</div>-->
+    
+        <!-- Audio controller -->
+    <a id="btnAudio" class="btn btnDark btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+      <img src="assets/intro/audio-on-neg.png">
+    </a>
+    
+    <!-- Graphics -->
+    <img id="introAction" class="fullscreen infoslide" src="assets/intro/action.gif">
+    <div id="introTitle">
+      <img id="titleBkg" class="floatBkg" src="assets/intro/INTRO-sign.png">
+      <img id="titleFore" class="floatFore" src="assets/intro/INTRO-v.png">
+    </div>
+        
+    
+    
+    <!-------------------- NEWSPAPER SLIDES -------------------->
+    <div id="newsHolder" class="fullscreen">
+      <!-- Intro news -->
+      <img id="news1" class="fullscreen newsslide hidden first" src="assets/newspapers/news-intro-1.png">
+      <img id="news2" class="fullscreen newsslide hidden" src="assets/newspapers/news-intro-2.png">
+      <img id="news3" class="fullscreen newsslide hidden" src="assets/newspapers/news-intro-3.png">
+      <img id="news4" class="fullscreen newsslide hidden" src="assets/newspapers/news-intro-4.png">
+      <img id="news5" class="fullscreen newsslide hidden" src="assets/newspapers/news-intro-5.png">
+      <!-- Ending news -->
+      <img id="news6" class="fullscreen newsslide hidden" src="assets/newspapers/news-end-1.png">
+      <img id="news7" class="fullscreen newsslide hidden" src="assets/newspapers/news-end-2.png">
+      <img id="news8" class="fullscreen newsslide hidden" src="assets/newspapers/news-end-3.png">
+    </div> 
+    
+    <!-- Back to splash -->
+    <a id="btnReturn" class="btn btnDark btnSml togglehover hidden" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+      <img src="assets/newspapers/back-neg.png">
+    </a>
+
+    
+
+    
+
+
+    <!-------------------- MAP ELEMENTS -------------------->
+    <!-- Minigame links -->
+    <div id="mapBtns">
+      <a id="linkShootup" href="militia.html" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+        <div class="scoreTitle">SHA TAU KOK</div>Repel the milita
+      </a>
+      <a id="linkInvestg" href="house.html" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+        <div class="scoreTitle">TAI PO</div>Search for evidence
+      </a>
+      <a id="linkStreets" href="streets.html" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+        <div class="scoreTitle">KOWLOON</div>Clear the streets
+      </a>
+      <a id="linkBombing" href="bombing.html" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+        <div class="scoreTitle">NORTH POINT</div>Defuse the bombs
+      </a>
+      <!--<a id="linkSwimmin" href="swim.html" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+        <div class="scoreTitle">DEEP BAY</div>Swim to freedom
+      </a>-->
+    </div>
+    
+    <!-- Background image & targets -->
+    <div class="fullscreen">
+      <img src="assets/map/map-main.png">
+      <img id="iM" src="assets/map/target.gif" style="position: absolute; top: 30px; left: 444px">
+      <img id="iH" src="assets/map/target.gif" style="position: absolute; top: 144px; left: 402px">
+      <img id="iS" src="assets/map/target.gif" style="position: absolute; top: 342px; left: 408px">
+      <img id="iB" src="assets/map/target.gif" style="position: absolute; top: 378px; left: 456px">
+    </div>
+    
+    
+    
+    <!-------------------- CURSOR FOLLOWER -------------------->
+    <div id="follower"><img id="followerImg" src="streets/assets/cursors/cur-empty.png"></div>
+  </div>
+  
+
+  
+  <!-------------------- FOOTER -------------------->
+  <footer>
+    <span>©2020 *AAmici</span>
+    <a class="footerLink" href="credits.html">Credits</a>
+  </footer>
+</body>
+</html>

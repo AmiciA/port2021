@@ -1,0 +1,183 @@
+/* ------ INDIVIDUAL BAR POSITIONING ------ */
+/* ----- 0 Prince Edward × Tong Mi B ----- */
+#petmBot {
+  width: 18px;
+  height: calc(24px * 6);
+  left: calc(35px * 6);
+  top: calc(4px * 6);
+}
+
+#petmBotCurr {
+  height: 0px;
+  width: 18px;
+}
+
+#petmBotEndpoint {
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  bottom: 24px;
+}
+
+/* ------ 1 Prince Edward × Tong Mi R ------ */
+#petmRig {
+  width: calc(39px * 6);
+  height: 18px;
+  left: calc(35px * 6);
+  top: calc(4px * 6);;
+}
+
+#petmRigCurr {
+  height: 18px;
+  width: 0px;
+}
+
+#petmRigEndpoint {
+  height: 18px;
+  width: 2px;
+  float: right;
+  margin-top: -18px;
+}
+
+/* ------ 2 Prince Edward × Waterloo L ------ */
+#pewaLef {
+  transform: rotate(180deg);
+  width: calc(40px * 6); 
+  height: 18px;
+  left: calc(74px * 6);
+  top: calc(4px * 6);;
+}
+
+#pewaLefCurr {
+  height: 18px;
+  width: 0px;
+}
+
+#pewaLefEndpoint {
+  height: 18px;
+  width: 2px;
+  float: right;
+  margin-top: -18px;
+}
+
+/* ----- 3 Prince Edward × Waterloo B ----- */
+#pewaBot {
+  width: 18px;
+  height: calc(33px * 6);
+  left: calc(111px * 6);
+  top: calc(4px * 6);
+}
+
+#pewaBotCurr {
+  height: 0px;
+  width: 18px;
+}
+
+#pewaBotEndpoint {
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  bottom: 24px;
+}
+
+/* ----- 4 Argyle × Nathan T ----- */
+#arnaTop {
+  transform: rotate(180deg);
+  width: 18px;
+  height: calc(30px * 6);
+  left: calc(54px * 6);
+  top: calc(7px * 6);
+}
+
+#arnaTopCurr {
+  height: 10px;
+  width: 18px;
+}
+
+#arnaTopEndpoint {
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  bottom: 24px;
+}
+
+/* ---------- 5 Argyle × Nathan R ---------- */
+#arnaRig {
+  width: calc(60px * 6);
+  height: 18px;
+  left: calc(54px * 6);              
+  top: calc(34px * 6);
+}
+
+#arnaRigCurr {
+  height: 18px;
+  width: 0px;
+}
+
+#arnaRigEndpoint {
+  height: 18px;
+  width: 2px;
+  float: right;
+  margin-top: -18px;
+}
+
+/* ----- 6 Argyle × Nathan B ----- */
+#arnaBot {
+  width: 18px;
+  height: calc(20px * 6);
+  left: calc(54px * 6);
+  top: calc(34px * 6);
+}
+
+#arnaBotCurr {
+  height: 0px;
+  width: 18px;
+}
+
+#arnaBotEndpoint {
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  bottom: 24px;
+}
+
+/* ----- 7 Waterloo × Nathan T ----- */
+#wanaTop {
+  transform: rotate(180deg);
+  width: 18px;
+  height: calc(20px * 6);
+  left: calc(54px * 6);
+  top: calc(54px * 6);
+}
+
+#wanaTopCurr {
+  height: 0px;
+  width: 18px;
+}
+
+#wanaTopEndpoint {
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  bottom: 24px;
+}
+
+/* ----- 8 Waterloo × Nathan B ----- */
+#wanaBot {
+  width: 18px;
+  height: calc(21px * 6);
+  left: calc(54px * 6);
+  top: calc(71px * 6);
+}
+
+#wanaBotCurr {
+  height: 10px;
+  width: 18px;
+}
+
+#wanaBotEndpoint {
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  bottom: 24px;
+}

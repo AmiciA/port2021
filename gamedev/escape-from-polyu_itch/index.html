@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+    <title>Escape from PolyU</title>
+    
+	<meta charset="utf-8">
+    <meta name="author" content="*AAmici">
+    <meta name="description" content="A self-playing game with minimal inputs created for the Spooky Screensaver Jam 2020 on itch.io.">
+	
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <link href="style.css" media="screen" rel="stylesheet" type="text/css">
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+    <script src="js/jquery.js"></script>
+	<script src="js/INHANCE_SegmentAnimator.jquery.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+    
+<body>
+    <!-- TOP UI -->
+    <img id="logoImg" src="assets/logo.png">
+    <div id="timerBar" style="visibility: hidden"><div id="timerTime"></div></div>
+    
+    <!-- MAIN CANVAS -->
+	<canvas id="sceneHolder" class="fullscreen" width="816" height="576"></canvas>
+    
+    <!-- MASK & OVERLAYS -->
+    <img id="flashCircles" class="fullscreen" style="visibility: hidden" src="assets/scenes/end-bad-persist-circles.png">
+    <img id="breathFogAnim" class="fullscreen movewithmouse" src="assets/scenes/fog.gif">
+    <img id="maskImg" class="fullscreen movewithmouse" src="assets/mask/mask.png">
+    <img id="flashBeams" class="fullscreen" style="visibility: hidden" src="assets/scenes/end-bad-persist-beams.png">
+    
+    <!-- INTERACTIVE ELEMENTS -->
+    <a id="begin" class="bigbutton" href="#"></a>
+    <a id="retry" class="bigbutton" style="display: none" href="#"></a>
+    <a id="ladder" class="bigbutton" style="display: none" href="#"></a>
+    <a id="sound" class="smallbutton soundOn" href="#"></a>
+    
+    <footer>
+        <span>©2020 *AAmici</span>
+        <a class="footerLink" href="credits.html">Credits</a>
+    </footer>
+</body>
+</html>

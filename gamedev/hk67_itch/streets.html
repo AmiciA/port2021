@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <title>Hong Kong '67: The Kowloon Streets</title>
+    
+	<meta charset="utf-8">
+  <meta name="author" content="*AAmici">
+  <meta name="description" content="A game about the 1967 Hong Kong riots.">
+	
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  
+  <link href="css/general.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="streets/css/streets.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="streets/css/positions.css" media="screen" rel="stylesheet" type="text/css">
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/general.js" defer></script>
+  <script src="streets/js/streets.js" defer></script>
+  <script src="streets/js/0-petmB.js" defer></script>
+  <script src="streets/js/1-petmR.js" defer></script>
+  <script src="streets/js/2-pewaL.js" defer></script>
+  <script src="streets/js/3-pewaB.js" defer></script>
+  <script src="streets/js/4-arnaT.js" defer></script>
+  <script src="streets/js/5-arnaR.js" defer></script>
+  <script src="streets/js/6-arnaB.js" defer></script>
+  <script src="streets/js/7-wanaT.js" defer></script>
+  <script src="streets/js/8-wanaB.js" defer></script>
+</head>
+    
+<body>    
+  <!-------------------- SOUNDS & MUSIC -------------------->
+  <audio id = 'sndClick' src='audio/beep.mp3'></audio>
+  <audio id = 'sndBGMMain' src="streets/audio/bgmstreets.mp3" loop></audio>
+  <audio id = 'sndStreetsGun' src="streets/audio/gunshot.mp3"></audio>
+  <audio id = 'sndStreetsTG' src="streets/audio/tgshot.mp3"></audio>
+  <audio id = 'sndStreetsBar' src="streets/audio/barr.mp3"></audio>
+  
+  
+  
+  <div id="gameHolder">
+    <!-------------------- UI ELEMENTS -------------------->
+    <!-- Timer bar -->
+    <div id="timerBar" style="visibility: visible;"><div id="timerTime"></div></div>
+    
+    <!-- Scorecard -->
+    <div id="scoreHolder">
+      <div class="scoreIndivid">
+        <div class="scoreTitle">LOCAL<br>MORALE</div>
+      </div>
+        <div class="scoreIndivid">
+          <span id="scoreP">&nbsp;</span>
+          <span class="scoreTitle">PUBLIC</span>
+        </div>
+        <div class="scoreIndivid">
+          <span id="scoreR">&nbsp;</span>
+          <span class="scoreTitle">RIOTERS</span>
+        </div>
+    </div>
+    
+    
+    
+    <!-------------------- CURSOR FOLLOWER -------------------->
+    <div id="follower"><img id="followerImg" src="streets/assets/cursors/cur-empty.png"></div>
+    
+    
+    
+    <!-------------------- ACTION BUTTONS -------------------->
+    <!-- Buttons sidebar -->
+    <div id="streetsBtns">
+      
+      <!-- Barricade -->
+      <div id="btnBarr" class = "btn btnDark btnStreetAction togglehover"><img id="btnBarrImg" src="streets/assets/buttons/btn-barricade.png">
+        <div class="ammoholder">
+          <div id="br1" class="ammo"></div>
+          <div id="br2" class="ammo"></div>
+          <div id="br3" class="ammo"></div>
+        </div>
+      </div>
+      
+      <!-- Baton rounds -->
+      <div id="btnBaton" class = "btn btnDark btnStreetAction togglehover"><img src="streets/assets/buttons/btn-baton.png"></div>
+      
+      <!-- Tear smoke -->
+      <div id="btnTear" class = "btn btnDark btnStreetAction togglehover"><img src="streets/assets/buttons/btn-tear.png"></div>
+      
+      <!-- Live rounds -->
+      <div id="btnLive" class = "btn btnDark btnStreetAction togglehover"><img id="btnLiveImg" src="streets/assets/buttons/btn-live.png">
+        <div class="ammoholder">
+          <div id="am1" class="ammo"></div>
+          <div id="am2" class="ammo"></div>
+          <div id="am3" class="ammo"></div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <!-------------------- MAP ELEMENTS -------------------->
+    <div class="fullscreen">
+      <img src="streets/assets/map.png">
+      <img class="overlay" src="streets/assets/overlays-hubsonly.png">
+    </div>
+    
+    <!-- 0 Prince Edward × Tong Mi B -->
+    <div id="petmBot" class="riotBars">
+      <div id="petmBotCurr" class="riotBarCurrs progImgDownParent"><img class="progImg down" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="petmBotEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 1 Prince Edward × Tong Mi R -->
+    <div id="petmRig" class="riotBars">
+      <div id="petmRigCurr" class="riotBarCurrs"><img class="progImg right" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="petmRigEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 2 Prince Edward × Waterloo L -->
+    <div id="pewaLef" class="riotBars">
+      <div id="pewaLefCurr" class="riotBarCurrs"><img class="progImg left" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="pewaLefEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 3 Prince Edward × Waterloo B -->
+    <div id="pewaBot" class="riotBars">
+      <div id="pewaBotCurr" class="riotBarCurrs progImgDownParent"><img class="progImg down" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="pewaBotEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 4 Argyle × Nathan T -->
+    <div id="arnaTop" class="riotBars">
+      <div id="arnaTopCurr" class="riotBarCurrs progImgDownParent"><img class="progImg up" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="arnaTopEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 5 Argyle × Nathan R -->
+    <div id="arnaRig" class="riotBars">
+      <div id="arnaRigCurr" class="riotBarCurrs"><img class="progImg right" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="arnaRigEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 6 Argyle × Nathan B -->
+    <div id="arnaBot" class="riotBars">
+      <div id="arnaBotCurr" class="riotBarCurrs progImgDownParent"><img class="progImg down" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="arnaBotEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 7 Waterloo × Nathan T -->
+    <div id="wanaTop" class="riotBars">
+      <div id="wanaTopCurr" class="riotBarCurrs progImgDownParent"><img class="progImg up" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="wanaTopEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    <!-- 8 Waterloo × Nathan B -->
+    <div id="wanaBot" class="riotBars">
+      <div id="wanaBotCurr" class="riotBarCurrs progImgDownParent"><img class="progImg down" src="streets/assets/prog-anim-ps.gif"></div>
+      <div id="wanaBotEndpoint" class="riotBarEndpoints"></div>
+    </div>
+    
+    
+    
+    <!-------------------- OVERLAY SLIDES -------------------->
+    <!-- Slide images -->
+    <div id="hider" class="fullscreen visible"></div>
+    <div id="slideChar" class="fullscreen infoslide"><img src="streets/assets/streets-char.png"></div>
+    <div id="slideIntro" class="fullscreen infoslide"><img src="streets/assets/streets-intro-1.png"></div>
+    <div id="slideOutroG" class="fullscreen infoslide hidden"><img src="streets/assets/streets-outro-1.png"></div>
+    <div id="slideOutroB" class="fullscreen infoslide hidden"><img src="streets/assets/streets-outro-2.png"></div>
+    <div id="slideOutroL" class="fullscreen infoslide hidden"><img src="streets/assets/streets-outro-3.png"></div>
+    
+    <!-- Slide buttons -->
+    <div id="btns">
+      <a id="linkEndMinigame" class="btn btnLite togglehover hidden" href="index.html" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH" >返總部</span> Return ⮌</a>
+      <div id="btnStartMinigame" class="btn btnLite togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH">推進!</span> Advance! →</div>
+      <div id="btnNxt" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">How to play?</div>
+      <div id="btnBck" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')" style="display: none;">← Back</div>
+    </div>
+    
+    
+    
+    <!-------------------- AUDIO CONTROLLER -------------------->
+    <!--<a id="btnAudio" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+      <img src="assets/intro/audio-on-neg.png">
+    </a>-->
+  </div>
+  
+  
+  
+  <!-------------------- FOOTER -------------------->
+  <footer>
+    <span>©2020 *AAmici</span>
+    <a class="footerLink" href="credits.html">Credits</a>
+  </footer>
+</body>
+</html>

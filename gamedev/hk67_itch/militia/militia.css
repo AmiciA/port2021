@@ -1,0 +1,244 @@
+/* ----------------------------------------- */
+/* ----------- SCENE POSITIONING ----------- */
+/* ----------------------------------------- */
+#apcWheelsShad { z-index: -1; } /* own stacking order? */
+#sInt          { z-index: 00; }
+#sBck          { z-index: 01; }
+.mole          { z-index: 02; }
+#sMid          { z-index: 03; }
+#flagPRC       { z-index: 03; }
+#towerman      { z-index: 03; }
+#sSpk          { z-index: 04; }
+#sWal          { z-index: 04; }
+#apc           { z-index: 05; }
+#apcInjureds   { z-index: 05; }
+#sFor, #sMen   { z-index: 06; }
+#qteCtrl       { z-index: 06; }
+.smokepuff     { z-index: 06; }
+#sOvr          { z-index: 07; }
+#qteCtrl       { z-index: 08; }
+
+
+
+/* SCENE LAYERS & ATTACHED ITEMS */
+.scenelayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+.flag {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
+#flagUK   { top: 5px;   right: 50px; }
+#flagPRC  { top: 27px;  right: 162px; }
+
+#towerman { top: 145px; right: -20px; }
+#sMen     { top: auto; bottom: 0; left: 0; }
+#sSpk     { top: 0;     right: 0; left: auto; }
+
+#sOvr {
+  mix-blend-mode: multiply;
+  opacity: .25;
+}
+
+
+
+/* ----------------------------------------- */
+/* ------------- MOLES & HOLES ------------- */
+/* ----------------------------------------- */
+/* div that stays in the same position & holds the mole */
+.hole {
+  overflow: hidden;
+  position: absolute;
+  width: 75px;
+  height: 125px;
+  background-color: rgba(100, 200, 255, .3);
+}
+
+/* div that moves shooter <img>s in and out of frame as called */
+.mole {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  transition: all 0.4s, background-image 0.2s;
+}
+
+/* actual shooter <img>s */
+.mole img {
+  position: absolute;
+  visibility: hidden;
+}
+
+.hole.up   .mole { top: 0; }
+.hole.left .mole { left: 0; }
+
+
+
+/* ----- HOLES' & MOLES' POSITIONS ----- */
+/* Left top window */
+.hole1       { top: 55px; left: 20px; }
+.hole1 img   { top: 72px; left: 50px; } /* muzzle flash */
+.mole1       { left: 100%;
+               background-image: url('assets/shooter-leftwindow.png'); }
+.mole1:hover { background-image: url(assets/shooter-leftwindow-hover.png);}
+
+/* Left door */
+.hole2       { top: 250px; left: 120px; }
+.hole2 img   { top: 37px; left: 48px; } /* muzzle flash */
+.mole2       { left: 100%;
+               background-image: url('assets/shooter-leftdoor.png'); }
+.mole2:hover { background-image: url('assets/shooter-leftdoor-hover.png'); }
+
+/* Mid road sandbags */
+.hole3       { top: 210px; left: 310px; }
+.hole3 img   { top: 68px; left: 18px; } /* muzzle flash */
+.mole3       { top: 100%;
+               background-image: url('assets/shooter-midroad.png'); }
+.mole3:hover { background-image: url('assets/shooter-midroad-hover.png'); }
+
+/* Roof sandbags (machinegunner) */
+.hole4       { top: -15px; left: 420px; }
+.hole4 img   { top: 57px; left: 7px; } /* muzzle flash */
+.mole4       { top: 100%;
+               background-image: url('assets/shooter-machinegun.png'); }
+.mole4:hover { background-image: url('assets/shooter-machinegun-hover.png'); }
+
+/* Right top window (sniper) */
+.hole5       { top: 78px; left: 460px; }
+.hole5 img   { top: 100px; left: 5px; } /* muzzle flash */
+.mole5       { top: 100%;
+               background-image: url('assets/shooter-sniper.png'); }
+.mole5:hover { background-image: url('assets/shooter-sniper-hover.png'); }
+
+/* Right shutter doors */
+.hole6       { left: 525px; top: 250px; }
+.hole6 img   { top: 22px; left: 5px; } /* muzzle flash */
+.mole6       { left: 100%;
+               background-image: url('assets/shooter-rightshutters.png'); }
+.mole6:hover { background-image: url('assets/shooter-rightshutters-hover.png'); }
+
+
+
+/* ----------------------------------------- */
+/* -------------- UI ELEMENTS -------------- */
+/* ----------------------------------------- */
+/* QTE control element on bottom */
+#qteCtrl {
+  position: absolute;
+  bottom: -25px;
+  left: 376px;
+  
+  border: 5px solid #07112D;
+  background-color: #07112D;
+  border-radius: 10px;
+}
+
+/* Smoke puff animation on click */
+.smokepuff {
+  position: absolute;
+  width: 191px;
+  height: 191px;
+  background: url('assets/ui/cur-click-sprite.png') 0px 0px;
+}
+
+
+
+/* ----------------------------------------- */
+/* ------------- APC & GURKHAS ------------- */
+/* ----------------------------------------- */
+
+/* GURKHA ANIMATIONS */
+/* Skewed masking element to improve gurkha animation in & out */
+#apcAnimHolder {
+  overflow: hidden;
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  transform: skewX(10deg);
+  top: 0px;
+  right: -237px;
+}
+
+/* 1: Gurkha running */
+#apcAnimRun {
+  position: absolute;
+  top: 90px;
+  left: -200px;
+}
+
+/* 2: Cloud hider */
+#apcAnimGat {
+  position: absolute;
+  top: 10px;
+  left: 60px;
+}
+
+/* Gurkha returning to APC with injureds */
+#apcAnimRet {
+  position: absolute;
+  left: 90px;
+}
+
+
+#apcInjureds {
+  position: absolute;
+  right: 90px;
+  bottom: 105px;
+}
+
+
+
+/* APC ELEMENTS & ANIMATIONS */ 
+/* Base APC element */
+#apc {
+  position: absolute;
+  bottom: 125px;
+  left: -400px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Damage either none, level 1, 2, or 3 */
+.apcDmg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Wheels either reversing, stopped, or forward */
+.apcWheels {
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+}
+
+/* Shadow on ground behind APC */
+#apcWheelsShad {
+  height: 50px;
+  width: 430px;
+  left: 20px;
+  background-color: rgba(0,0,0,.2);
+  border-radius: 25px 0px 30px 25px;
+}
+
+/* Bullet ricochet */
+.apcHit {
+  position: absolute;
+  top: 50px;
+}
+#apcHitL { left: 200px; }
+#apcHitR { left: 350px; }
+
+/* Door either open w/gurkha, open-empty, or closed */
+.apcDoor {
+  position: absolute;
+  right: 0;
+}

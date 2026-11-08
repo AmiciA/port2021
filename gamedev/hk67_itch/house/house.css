@@ -1,0 +1,112 @@
+/* ----------------------------------------- */
+/* ----------- SCENE POSITIONING ----------- */
+/* ----------------------------------------- */
+#sceneFilter { z-index: 01; }
+#desc        { z-index: 02; }
+#guessHolder { z-index: 03; }
+
+
+
+/* ----------------------------------------- */
+/* -------------- UI ELEMENTS -------------- */
+/* ----------------------------------------- */
+
+/* ----- TEXT BOX TO HOLD OBJECT DESCRIPTIONS ----- */
+#desc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 15px 10px 10px 58px;
+  background-color: #07112D;
+  border-bottom-right-radius: 10px;
+  width: 373px;
+  text-align: left;
+  color: #07112D; /*same as bkg to hide until game begins, set to #faf3e2 in js */
+}
+
+/* ----- BOX TO HOLD GUESS INDICATORS ----- */
+#guessHolder {
+  position: absolute;
+  padding: 8px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  top: 0;
+  left: 10px;
+  user-select: none;
+  border: 2px solid #1F376D;
+  border-left: none;
+  border-bottom: none;
+  background-color: #111F51;
+  box-shadow: 0px 5px #07112D;
+  color: #faf3e2;
+}
+/*.holderWon { border: 2px solid #425933; background-color: #344C25; box-shadow: 0px 5px #1A300D; } UNUSED */
+
+/* ----- GUESS INDICATORS ----- */
+.guess {
+  width: 5px;
+  height: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1.5px solid #faf3e2;
+  transition: all .125s ease-in;
+}
+.guessed { background-color: #faf3e2; }
+
+/* ----- TIMER BAR ----- */
+#timerBar {
+  position: absolute;
+  width: 816px;
+  height: 6px;
+  left: 50%;
+  bottom: 0;
+  margin: 0 auto;
+  margin-left: -408px;
+  margin-bottom: -20px;
+  background-color: #020714;
+  border-radius: 10px;
+}
+
+/* ----- CURRENT TIME ----- */
+#timerTime {
+  width: 1%;
+  height: 6px;
+  background-color: #faf3e2;
+  border-radius: 10px;
+}
+
+/* ----- CAMERA FLASH ANIMATION ----- */
+.camflash {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  background: url('assets/flash-sprite.png') 0px 0px;
+}
+
+
+/* ----------------------------------------- */
+/* -------------- SCENE STYLES ------------- */
+/* ----------------------------------------- */
+
+/* ----- IMAGEMAP AREAS ----- */
+area { outline: none; }
+
+/* ----- OVERLAYS ----- */
+.scenelayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ----- TV FILTER OVERLAY ----- */
+#sceneFilter {
+  mix-blend-mode: multiply;
+  opacity: .25;
+  
+}

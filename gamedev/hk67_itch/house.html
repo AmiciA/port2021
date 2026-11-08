@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <title>Hong Kong '67: Shootout in Sha Tau Kok</title>
+
+  <meta charset="utf-8">
+  <meta name="author" content="*AAmici">
+  <meta name="description" content="A game about the 1967 Hong Kong riots.">
+  
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <link href="house/house.css" rel="stylesheet" type="text/css">
+  <link href="css/general.css" media="screen" rel="stylesheet" type="text/css">
+  <!--<link href="militia/militia.css" rel="stylesheet" type="text/css">-->
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/general.js" defer></script>
+  <!--<script src="militia/militia.js"></script>-->
+  <script src="house/house.js" defer></script>
+</head>
+
+<body id="boody">  
+  <div id="gameHolder">
+    <!-------------------- SOUNDS & MUSIC -------------------->
+    <audio id = 'sndClick' src='audio/beep.mp3'></audio>
+    <audio id = 'sndCamera' src='house/audio/shutter.wav'></audio>
+    <audio id = 'sndCameraError' src='house/audio/shutter-error.wav'></audio>
+    <audio id = 'sndBGMMain' src="house/audio/house-bgm.wav" loop></audio>
+    
+    <!-------------------- UI ELEMENTS -------------------->
+    <!-- Timer bar -->
+    <div id="timerBar" style="visibility: visible;"><div id="timerTime"></div></div>
+    
+    <!-- Scorecard -->
+    <div id="scoreHolder">
+      <div class="scoreIndivid">
+        <div class="scoreTitle">LOCAL<br>MORALE</div>
+      </div>
+        <div class="scoreIndivid">
+          <span id="scoreP">&nbsp;</span>
+          <span class="scoreTitle">PUBLIC</span>
+        </div>
+        <div class="scoreIndivid">
+          <span id="scoreR">&nbsp;</span>
+          <span class="scoreTitle">RIOTERS</span>
+        </div>
+    </div>
+    
+    <!-------------------- CURSOR FOLLOWER -------------------->
+    <div id="follower"><img id="followerImg" src="house/assets/cur-mag.png"></div>
+    
+    
+    
+    
+    
+
+        <div id="guessHolder">
+          <div id="br0" class="guess"></div>
+          <div id="br1" class="guess"></div>
+          <div id="br2" class="guess"></div>
+          <div id="br3" class="guess"></div>
+          <div id="br4" class="guess"></div>
+          <div id="br5" class="guess"></div>
+          <div id="br6" class="guess"></div>
+          <div id="br7" class="guess"></div>
+          <div id="br8" class="guess"></div>
+          <div id="br9" class="guess"></div>
+        </div>
+
+    <p id="desc">I'm here. Po Yick Building, Flat 7b.</p>
+    
+    
+    
+    
+    
+    <div class="fullscreen">
+      <img id="sceneFilter" class="scenelayer" src="militia/assets/scene/filmgrain-light.gif">
+      <img id="sceneBB" class="scenelayer" src="house/assets/house-bamboo.gif">
+      <img id="sceneDP" class="scenelayer" src="house/assets/house-drip.gif">
+      <img id="sceneRD" class="scenelayer" src="house/assets/house-radio.gif">
+      <img id="sceneCK" class="scenelayer" src="house/assets/house-clock.gif">
+      <img id="sceneBD" class="scenelayer" src="house/assets/house-bird.gif">
+      
+      <img id="sceneFull" src="house/assets/house.png" usemap="#mainscene">
+      <map name="mainscene" id="mapScene">
+
+        <!-- background -->
+        <area alt="room"
+              id="0"
+              shape="default"
+              onmouseover="writeText('Po Yick Building, Flat 7b.')">
+        <area alt="window"
+              id="1"
+              shape="rect" coords="0,80,147,347"
+              onmouseover="writeText('Ahh, the beautiful Tai Po sunset… focus!')">
+        
+        <!-- left area -->
+        <area alt="bamboo"
+              id="2"
+              shape="rect" coords="0,390,50,575"
+              onmouseover="writeText('Some lucky bamboo…')">
+        <area alt="callig"
+              id="3"
+              shape="rect" coords="48,446,76,576"
+              onmouseover="writeText('Some rolled-up calligraphy…')">
+        <area alt="table"
+              id="4"
+              shape="poly" coords="77,457,211,457,222,476,225,575,171,575,172,559,131,558,130,574,74,575,70,477"
+              onmouseover="writeText('A very elegantly-carved endtable…')">
+        <area alt="beer"
+              id="5"
+              shape="rect" coords="95,409,119,450"
+              onmouseover="writeText('Someone\'s just opened a beer…')">
+        <area alt="dogfood"
+              id="6"
+              shape="rect" coords="133,558,171,576"
+              onmouseover="writeText('Dog food?')">
+        <area alt="phone"
+              id="7"
+              shape="rect" coords="129,405,209,456"
+              onmouseover="writeText('Just a standard telephone…')">
+        <area alt="lamp"
+              id="8"
+              shape="rect" coords="215,235,295,308"
+              onmouseover="writeText('A modern floor lamp…')">
+        <area alt="faichun"
+              id="9"
+              shape="poly" coords="186,149,256,88,325,152,256,229"
+              onmouseover="writeText('A hand-painted fai chun…')">
+
+        <!-- centre area -->
+        <area alt="fan"
+              id="10"
+              shape="rect" coords="247,0,585,64"
+              onmouseover="writeText('A ceiling fan…')">
+        <area alt="pic-txt"
+              id="11"
+              shape="rect" coords="354,140,499,341"
+              onmouseover="writeText('It reads &quot;Mustard Seed Garden Painting Manual&quot;')">
+        <area alt="maoposter"
+              id="12"
+              shape="poly" coords="499,337,517,326,499,156"
+              onmouseover="writeText('Is something behind the painting?')">
+        <area alt="gun"
+              id="13"
+              shape="poly" coords="317,438,353,467,368,499,386,498,420,501,419,486,412,480,388,470,360,442,336,430"
+              onmouseover="writeText('Just some photography supplies…')">
+        <area alt="bloodrag"
+              id="14"
+              shape="rect" coords="223,523,282,576"
+              onmouseover="writeText('Looks like a first aid kit…')"> 
+        <area alt="sofa"
+              id="15"
+              shape="poly" coords="570,396,569,564,266,565,263,492,252,482,253,461,270,449,303,450,311,438,340,432,341,419,352,404,370,395"
+              onmouseover="writeText('Pretty normal-looking sofa here…')">
+
+        <!-- shelves exterior -->
+        <area alt="clock"
+              id="16" shape="poly" coords="578,205,578,231,654,232,655,205,642,200,633,190,604,189,590,201"
+              onmouseover="writeText('Not much time left!')">
+        <area alt="box"
+              id="17" shape="rect" coords="709,178,800,233"
+              onmouseover="writeText('The handwriting reads &quot;more books&quot;')">
+        <area alt="pic-landscape"
+              id="18" shape="rect" coords="596,74,766,207"
+              onmouseover="writeText('A very peaceful painting, I wonder who made it…')">
+        <area alt="calendar"
+              id="19" shape="rect" coords="785,251,816,332"
+              onmouseover="writeText('…can\'t believe it\'s July already')">
+
+        <!-- 1. shelf -->
+        <area alt="books-0"
+              id="20"
+              shape="rect" coords="575,246,620,319"
+              onmouseover="writeText('Assorted books and magazines…')">
+        <area alt="books-red"
+              id="21"
+              shape="rect" coords="618,274,629,321"
+              onmouseover="writeText('A red book…')">
+        <area alt="books-red-above"
+              id="22"
+              shape="rect" coords="618,246,629,274"
+              onmouseover="writeText('Assorted books and magazines…')">
+        <area alt="books-1"
+              id="23"
+              shape="rect" coords="628,244,649,322"
+              onmouseover="writeText('A book of paintings…')">
+        <area alt="books-2"
+              id="24"
+              shape="rect" coords="646,301,710,319"
+              onmouseover="writeText('A stack of books…')">
+        <area alt="mango"
+              id="25"
+              shape="rect" coords="648,260,692,301"
+              onmouseover="writeText('A mango?')">
+        <area alt="books-3"
+              id="26"
+              shape="poly" coords="710,313,741,265,761,266,761,248,777,248,777,319,716,318"
+              onmouseover="writeText('More books and magazines…')">
+
+        <!-- 2. shelf -->
+        <area alt="radio"
+              id="27"
+              shape="rect" coords="574,331,631,392"
+              onmouseover="writeText('Just a portable radio and some batteries…')">
+        <area alt="books-4"
+              id="28"
+              shape="rect" coords="631,374,684,392"
+              onmouseover="writeText('Another stack of books…')">
+        <area alt="portrait"
+              id="29"
+              shape="rect" coords="636,344,667,375"
+              onmouseover="writeText('A family photograph, perhaps?')">
+        <area alt="books-dict"
+              id="30"
+              shape="poly" coords="680,343,720,345,716,359,707,363,703,371,702,392,677,391"
+              onmouseover="writeText('A red book with simplified Chinese words…')">
+        <area alt="wood"
+              id="31"
+              shape="poly" coords="701,384,704,392,762,393,764,384,755,370,753,357,737,350,720,353,707,364"
+              onmouseover="writeText('Some kind of abstract wood carving?')">
+        <area alt="books-5"
+              id="32"
+              shape="rect" coords="765,332,777,394"
+              onmouseover="writeText('A lone book…')">
+
+        <!-- 3. shelf -->
+        <area alt="books-6"
+              id="33"
+              shape="rect" coords="573,413,633,472"
+              onmouseover="writeText('Some journals, perhaps?')">
+        <area alt="wine"
+              id="34"
+              shape="rect" coords="632,407,670,472"
+              onmouseover="writeText('A few bottles of cheap wine…')">
+        <area alt="molly"
+              id="35"
+              shape="poly" coords="669,455,668,471,776,472,775,406,753,406,746,426,744,445,712,441,700,451"
+              onmouseover="writeText('Some towels and bottles…')">
+
+        <!-- 4. shelves & exterior bottom -->
+        <area alt="photo-hidden"
+              id="36"
+              shape="rect" coords="659,516,674,555"
+              onmouseover="writeText('A photograph of…?')">
+        <area alt="records"
+              id="37"
+              shape="rect" coords="576,485,674,554"
+              onmouseover="writeText('A bunch of records…')">
+        <area alt="fish-tackle"
+              id="38"
+              shape="rect" coords="685,502,752,555"
+              onmouseover="writeText('Looks like some fishing equipment…')">
+        <area alt="fish-bombs"
+              id="39"
+              shape="rect" coords="751,494,778,554"
+              onmouseover="writeText('A few bottles of… beer?')">
+        <area alt="fish-rod"
+              id="40"
+              shape="rect" coords="782,374,816,576"
+              onmouseover="writeText('A cheap fishing rod…')">
+        
+        <!-- shelves background -->
+        <area alt="shelf"
+              id="41"
+              shape ="rect" coords="569,234,816,576"
+              onmouseover="writeText('A wooden bookshelf')">
+      </map>
+    </div>
+    
+
+    
+    <!-------------------- OVERLAY SLIDES -------------------->
+    <!-- Slide images -->
+    <div id="hider" class="fullscreen visible"></div>
+    <div id="slideChar" class="fullscreen infoslide"><img src="house/assets/scene/house-char.png"></div>
+    <div id="slideIntro" class="fullscreen infoslide"><img src="house/assets/scene/house-intro-1.png"></div>
+    <div id="slideOutroG" class="fullscreen infoslide hidden"><img src="house/assets/scene/house-outro-1.png"></div>
+    <div id="slideOutroB" class="fullscreen infoslide hidden"><img src="house/assets/scene/house-outro-2.png"></div>
+    
+    <!-- Answers images -->
+    <div id="slideAnsHint" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-hints.png"></div>
+    <div id="slideAns35" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-1-bottles.png"></div>
+    <div id="slideAns39" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-2-bombs.png"></div>
+    <div id="slideAns30" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-3-dict.png"></div>
+    <div id="slideAns25" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-4-mango.png"></div>
+    <div id="slideAns14" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-5-firstaid.png"></div>
+    <div id="slideAns3" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-6-posters.png"></div>
+    <div id="slideAns13" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-7-gun.png"></div>
+    <div id="slideAns21" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-8-book.png"></div>
+    <div id="slideAns12" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-9-propposter.png"></div>
+    <div id="slideAns36" class="fullscreen infoslide hidden"><img src="house/assets/answers/house-answers-10-maophoto.png"></div>
+    
+    <!-- Slide buttons -->
+    <div id="btns">
+      <a id="linkEndMinigame" class="btn btnLite togglehover hidden" href="index.html" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH">返總部</span> Return ⮌</a>
+      <a id="btnStartMinigame" class="btn btnLite togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH">調查!</span> Investigate! →</a>
+      <div id="btnNxt" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">How to play?</div>
+      <div id="btnBck" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')" style="display: none;">← Back</div>
+      <div id="btnHint" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">Hint?</div>
+    </div>
+  </div>
+</body>
+</html>

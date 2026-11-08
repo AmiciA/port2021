@@ -1,0 +1,119 @@
+/* --- PAGE STYLES --- */
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+  font-size: 18px; 
+  color: #ffffff;
+  font-family: 'More Perfect DOS VGA', monospace;  
+  background: linear-gradient(
+    to bottom,
+    #0b0b0b,
+    #0b0b0b 50%,
+    #0d0d0d 50%,
+    #0d0d0d
+  );
+  background-size: 100% 10px;
+}
+
+/* Image + Subtitle Area */
+#left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  width: 45%;
+  height: 80%;
+}
+
+#left img, #left span {
+  align-self: center;
+  text-align: center;
+  font-size: 22px;
+  max-width: 100%;
+}
+
+#left img {
+  animation: hover-anim 2s steps(2, start) infinite;
+}
+@keyframes hover-anim {
+  to{
+    transform: translate(0px, -10px);
+  }
+}
+
+/* Modal */
+#right {
+  align-self: center;
+  width: 45%;
+  height: auto;
+  
+  background-color: #0000ff;
+  color: #ffffff;
+  outline: 2px solid #0000ff;
+  border: 2px solid #ffffff;
+}
+
+.title {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Recording Icon */
+.title::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  float: right;
+  margin-right: 10px;
+  margin-top: 3px;
+  border-radius: 50%;
+  animation: record-anim 3s steps(2, start) infinite;
+}
+@keyframes record-anim {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Conversation Area */
+.convo {
+  padding: 20px 10px;
+}
+
+/* Incoming Message Highlight */
+.hilite {
+  color: #0000ff;
+  background-color: #ffffff;
+  display: inline;
+}
+
+/* Alexa Highlight */
+.alexa {
+  border: 1px solid #ffffff;
+  padding: 5px;
+  display: inline;
+}
+
+/* Button: Default & Selected */
+#button {
+  background-color: #ffffff;
+  color: #0000ff;
+  border: 2px solid #0000ff;
+  text-align: center;
+  width: 50%;
+  padding: 10px 0;
+  margin: 20px auto 5px auto;
+}
+
+.button_selected {
+  animation: pulse-anim 1.25s steps(2, start) infinite;
+}
+@keyframes pulse-anim {
+  to {
+    outline: 2px solid rgba(255, 255, 255, 1);
+  }
+}

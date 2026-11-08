@@ -1,0 +1,437 @@
+/* ------------------------------------------ */
+/* --------------- Z-INDICIES --------------- */
+/* ------------------------------------------ */
+#mapBkg       { z-index: 00; }
+.overlay      { z-index: 01; }
+#riotBars     { z-index: 02; }
+.progImg      { z-index: 03; }
+#streetsBtns  { z-index: 04; }
+#mapBtns      { z-index: 04; }
+.ammo         { z-index: 05; }
+#hider        { z-index: 06; }
+.infoslide    { z-index: 07; }
+.btn          { z-index: 08; }
+#follower     { z-index: 09; }
+#scoreHolder  { z-index: 10; }
+/*#btnAudio     { z-index: 10; }*/
+
+
+
+
+
+/* ----------------------------------------- */
+/* ----- UNIVERSAL & CONTAINER STYLES ------ */
+/* ----------------------------------------- */
+body {
+  background-color: #07112D; /* previously #322E45 */
+  cursor: none;
+}
+
+a {
+  cursor: none;
+  text-decoration: none;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag:none;
+  -moz-user-drag:none;
+  -o-user-drag:none;
+  user-drag:none;
+}
+
+#gameHolder {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 816px;
+  height: 576px;
+  margin: -288px auto auto -408px;
+}
+
+.fullscreen {
+  position:absolute;
+  width: 816px;
+  height: 576px;
+  left: 50%;
+  top: 50%;
+  margin: 0 auto;
+  margin-left: -408px;
+  margin-top: -288px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag:none;
+  -moz-user-drag:none;
+  -o-user-drag:none;
+  user-drag:none;
+}
+
+
+
+
+
+/* ---------------------------------------- */
+/* -------------- UI ELEMENTS ------------- */
+/* ---------------------------------------- */
+
+/* ----- CURSOR FOLLOWER ----- */
+#follower{
+  position : relative;
+  width:48px;
+  height:48px;
+  pointer-events: none;
+}
+
+
+
+/* ----- SCORECARD ----- */
+#scoreHolder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  left: calc(50% - 120px);
+  margin-top: -44px;
+  background-color: #faf3e2;
+  border-radius: 10px;
+  border: 5px solid #07112D;  
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.scoreTitle {
+  font-size: 12px;
+  font-weight: bold; 
+}
+
+.scoreIndivid {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px;
+  text-align: center;
+}
+
+.scoreIndivid:nth-child(2) {
+  border-left: 2px dashed #1F1D30;
+  border-right: 2px dashed #1F1D30;
+}
+
+#scoreP, #scoreR { font-weight: bold; }
+#scoreP          { color: #2e63af; }
+#scoreR          { color: #ce2e45; }
+
+
+
+
+
+/* ----------------------------------------- */
+/* ---------------- BUTTONS ---------------- */
+/* ----------------------------------------- */
+
+/* ----- ALL BUTTON POSITIONS ----- */
+/* General audio switch */
+#btnAudio {
+  top: 10px;
+  right: 10px;
+  padding: 8px 8px 5px;
+}
+
+/* Return to splash screen */
+#btnReturn {
+  top: 10px;
+  left: 10px;
+  padding: 8px 8px 5px;
+}
+
+/* Game splash screen buttons */
+#btnStartGame {
+  left: 333px;
+  top: 350px;
+  width: 150px;
+}
+
+#btnStartMusic {
+  left: 362px;
+  top: 390px;
+  width: 100px;
+}
+
+/* #btnStartGame pushed down, becomes "next news item" button */
+.btnNewsNext {
+  top: 520px !important;
+}
+
+/* Minigame start screen buttons */
+#btnStartMinigame, #linkEndMinigame {
+  right: 15px;
+  top: 183px;
+}
+#btnNxt, #btnBck {
+  right: 15px;
+  top: 248px;
+}
+#btnHint {
+  top: 248px;
+  right: 169px;
+}
+
+
+
+/* ----- ALL BUTTON STYLES ----- */
+/* Base button */
+.btn {  
+  position: absolute;
+  padding: 12px 20px;
+  border-radius: 15px;
+  font-family: monospace;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  transition: all              .4s ease-in,
+              background-color .1s ease-in,
+              transform        .1s ease-in;
+}
+.btn.togglehover:hover {
+  transform: rotate(2deg) scale(1.03);
+}
+
+/* Base button variations */
+.btnBig  { font-weight: bold;
+           font-size: 24px;     }
+.btnSml  { border-radius: 10px;
+           padding: 4px 12px;   }
+.btnThin { padding: 8px 16px;   }
+.ZH      { font-size: 16px;     }
+.ZHtiny  { font-size: 11px;     }
+
+/* Button with light background */
+.btnLite {
+  border: 2px solid #FCF4E9;
+  border-left: none;
+  border-bottom: none;
+  background-color: #CFBFA2;
+  box-shadow: 0px 5px #BCA88C;
+  color: #312E2A;
+}
+.btnLite.togglehover:hover {
+  background-color: #fdf8eb;
+  transform: rotate(2deg) scale(1.03);
+}
+
+/* Button with dark background */
+.btnDark {
+  border: 2px solid #1F376D;
+  border-left: none;
+  border-bottom: none;
+  background-color: #111F51;
+  box-shadow: 0px 5px #07112D;
+  color: #faf3e2;
+}
+.btnDark.togglehover:hover {
+  background-color: #1F376D;
+  transform: rotate(2deg) scale(1.03);
+}
+
+
+
+
+
+/* ------------------------------------------ */
+/* ----------- GAME SPLASH & INTRO ---------- */
+/* ------------------------------------------ */
+
+/* ----- STATIC-Y BACKGROUND ----- */
+#introHider {
+  z-index: 06;
+  user-select: none;
+  pointer-events: all; /* this actually stops things behind from being clicked */
+  transition: all 1s ease;
+}
+
+
+
+/* ----- SPLASH-ONLY GRAPHICS & ELEMENTS ----- */
+
+/* Positioning the whole title graphic (meaning, the background) */
+#introTitle {
+  position: absolute;
+  top: 40px;
+  left: 76px;
+  z-index: 08;
+  width: 664px;
+  transition: all 1s ease;
+}
+
+/* Positioning the foreground of the title graphic within the background */
+#titleFore {
+  position: absolute;
+  left: 218px;
+  top: -30px;
+}
+
+/* Title graphic background layer (name of game) */
+.floatBkg {   
+  animation-name: floatBkg; 
+  animation-duration: 3s; 
+  animation-iteration-count: infinite; 
+  animation-timing-function: ease-in-out; 
+} 
+@keyframes floatBkg { 
+    0% { transform: translate(0,  0px); } 
+   50% { transform: translate(0, 10px); } 
+  100% { transform: translate(0, -0px); }     
+} 
+
+/* Title graphic foreground layer ("V"-shaped graphic) */
+.floatFore {   
+  animation-name: floatFore; 
+  animation-duration: 3s; 
+  animation-iteration-count: infinite; 
+  animation-timing-function: ease-in-out; 
+} 
+@keyframes floatFore { 
+    0% { transform: translate(0, -5px); } 
+   50% { transform: translate(0, 15px); } 
+  100% { transform: translate(0, -5px); }     
+} 
+
+/* Bottom animation image */
+#introAction {
+  height: 225px;
+  top: auto;
+  bottom: 0;
+}
+
+
+
+
+
+/* ----------------------------------------- */
+/* ------------ NEWSPAPER SLIDES ----------- */
+/* ----------------------------------------- */
+
+/* ----- NEWSPAPER SLIDES ----- */
+.newsslide {
+  z-index: 07;
+  pointer-events: none;
+  user-select: none;
+}
+
+.newsenter {
+  animation-name: paperEnter; 
+  animation-duration: .45s; 
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes paperEnter {
+  0%   { opacity: 0%;   transform: translate(150px, 0px) ;}
+  100% { opacity: 100%; transform: translate(0px, 0px)    ;}
+}
+
+.newsenter.first {
+  animation-name: paperEnterFirst;
+  animation-duration: .6s; 
+}
+@keyframes paperEnterFirst {
+  0%   { opacity: 0%;   transform: translate(600px, 0px) rotate(90deg) ;}
+  100% { opacity: 100%; transform: translate(0px, 0px)    rotate(00deg) ;}
+}
+
+.newsexit {
+  animation-name: paperExit; 
+  animation-duration: .3s; 
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes paperExit {
+  0%   { opacity: 100%; transform: translate(0px, 0px)   ;}
+  100% { opacity: 0%;   transform: translate(-150px, 0px) ;}
+}
+
+
+
+
+
+/* ------------------------------------------ */
+/* -------- MINIGAME INTROS & OUTROS -------- */
+/* ------------------------------------------ */
+
+/* ----- BACKGROUND OVERLAY ----- */
+#hider {
+  background-color: #322e45;
+  user-select: none;
+  pointer-events: none;
+  transition: all 2s ease;
+}
+.opaque  { opacity: 1.0 !important; }
+.visible { opacity: 0.9 !important; }
+.hidden  { opacity: 0.0 !important; pointer-events: none;} /* beware, I added this, may have unintended consequences? */
+
+
+
+/* ----- SLIDE IMAGE ----- */
+.infoslide {
+  pointer-events: none;
+  user-select: none;
+  transition: all 0.3s ease-out;
+}
+
+.slideIntroHTP {
+  position: absolute;
+  left: 360px;
+  top: 30px;
+  box-shadow: 0 5px rgba(112, 74, 25, .25);
+  border-radius: 3px;
+}
+
+
+
+
+
+/* ------------------------------------------ */
+/* ----------------- FOOTER ----------------- */
+/* ------------------------------------------ */
+footer {
+  position:absolute;
+  width: 99%;
+  margin: 0 auto;
+  bottom: 20px;
+  height: 20px;
+  text-align:center;
+  font-family: consolas;
+}
+
+footer span                 { color: #5e666f; }
+footer a, p a               { color: #7a8693; }
+footer a:hover, p a:hover   { color: #c93030; }
+footer a:active, p a:hover  { color: #fd7070; }
+
+
+
+
+
+/* ------------------------------------------ */
+/* -------------- CREDITS PAGE -------------- */
+/* ------------------------------------------ */
+h1 {
+    text-align: center;
+    font-family: consolas;
+    color: #7a8693;
+}
+
+p {
+    text-align: center;
+    font-family: monospace;
+    color: #e0dbf5;
+}
+a.gamelink { color: #c93030; }
+p.signoff { color: #5e666f; }

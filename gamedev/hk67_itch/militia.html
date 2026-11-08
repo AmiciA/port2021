@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <title>Hong Kong '67: Shootout in Sha Tau Kok</title>
+
+  <meta charset="utf-8">
+  <meta name="author" content="*AAmici">
+  <meta name="description" content="A game about the 1967 Hong Kong riots.">
+  
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <link href="css/general.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="militia/militia.css" rel="stylesheet" type="text/css">
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/general.js" defer></script>
+  <script src="militia/militia.js"></script>
+</head>
+
+<body>  
+  <div id="gameHolder">
+    <!-------------------- SOUNDS & MUSIC -------------------->
+    <audio id = 'sndClick' src='audio/beep.mp3'></audio>
+    <audio id = 'sndMilitiaTG' src="militia/audio/tgshot.mp3"></audio>
+    <audio id = 'sndMilitiaShtRcht' src="militia/audio/shotricochet.wav"></audio>
+    <audio id = 'sndMilitiaAPCStrt' src="militia/audio/apcstart.wav"></audio>
+    <audio id = 'sndMilitiaAPCDmg' src="militia/audio/apcdmg.wav"></audio>
+    <audio id = 'sndMilitiaRescue' src="militia/audio/rescue.wav"></audio>
+    <audio id = 'sndBGMMain' src="militia/audio/militiabkg.wav" loop></audio>
+    
+    <!-------------------- UI ELEMENTS -------------------->
+    <!-- Scorecard -->
+    <div id="scoreHolder">
+      <div class="scoreIndivid">
+        <div class="scoreTitle">LOCAL<br>MORALE</div>
+      </div>
+        <div class="scoreIndivid">
+          <span id="scoreP">&nbsp;</span>
+          <span class="scoreTitle">PUBLIC</span>
+        </div>
+        <div class="scoreIndivid">
+          <span id="scoreR">&nbsp;</span>
+          <span class="scoreTitle">RIOTERS</span>
+        </div>
+    </div>
+    
+    <!-------------------- CURSOR FOLLOWER -------------------->
+    <div id="follower"><img id="followerImg" src="militia/assets/ui/cur-scope.png"></div>
+    <div id="followerClick"></div>
+    
+    
+    
+    <div class="fullscreen">
+      <span class="score">0</span>
+      <div id="moleHolder">
+        <div class="poof poof1"><div class="hole hole1"><div class="mole mole1"><img src="militia/assets/shooter-shot-R.png"></div></div></div>
+        <div class="poof poof2"><div class="hole hole2"><div class="mole mole2"><img src="militia/assets/shooter-shot-R.png"></div></div></div>
+        <div class="poof poof3"><div class="hole hole3"><div class="mole mole3"><img src="militia/assets/shooter-shot-L.png"></div></div></div>
+        <div class="poof poof4"><div class="hole hole4"><div class="mole mole4"><img src="militia/assets/shooter-shot-L.png"></div></div></div>
+        <div class="poof poof5"><div class="hole hole5"><div class="mole mole5"><img src="militia/assets/shooter-shot-L.png"></div></div></div>
+        <div class="poof poof6"><div class="hole hole6"><div class="mole mole6"><img src="militia/assets/shooter-shot-L.png"></div></div></div>
+      </div>
+      
+      <img id="sSky" class="scenelayer" src="militia/assets/scene/scene-sky.png">
+      <img id="sInt" class="scenelayer" src="militia/assets/scene/scene-back-interiors.png">
+      <img id="sBck" class="scenelayer" src="militia/assets/scene/scene-back.png">
+      <img id="sMid" class="scenelayer" src="militia/assets/scene/scene-mid.png">
+      <img id="sSpk" class="scenelayer" src="militia/assets/scene/scene-mid-speakers.gif">
+      <img id="sWal" class="scenelayer" src="militia/assets/scene/scene-mid-wall.png">
+      <img id="sFor" class="scenelayer" src="militia/assets/scene/scene-fore.png">
+      <img id="sMen" class="scenelayer" src="militia/assets/scene/scene-fore-men.gif">
+      <img id="sOvr" class="scenelayer" src="militia/assets/scene/filmgrain-vignette.gif">
+      
+      <img id="flagUK" class="flag" src="militia/assets/scene/flag-uk.gif">
+      <img id="flagPRC" class="flag" src="militia/assets/scene/flag-prc.gif">
+      <img id="towerman" class="flag" src="militia/assets/scene/towerman.gif">
+      <img id="apcInjureds" class="flag" src="militia/assets/scene/scene-injured.gif">
+      
+      
+      
+      
+      <div id="apc">
+        <img id="apcBase" class = "" src="militia/assets/apc/apc-base.gif">
+        
+        <img id="apcDoorManned" class = "apcDoor" src="militia/assets/apc/apc-enter-full.gif">
+        <img id="apcDoorEmpty" class = "apcDoor" src="militia/assets/apc/apc-enter-empty.gif" style="opacity: 0.01;">
+        <img id="apcDoorClosed" class = "apcDoor" src="militia/assets/apc/apc-exit.gif" style="opacity: 0.01;">
+        
+        <img id="apcWheelsStop" class="apcWheels" src="militia/assets/apc/apc-wheels-stop.gif" style="opacity: 1;">
+        <img id="apcWheelsBack" class="apcWheels" src="militia/assets/apc/apc-wheels-reverse.gif" style="opacity: 0.01;">
+        <img id="apcWheelsFore" class="apcWheels" src="militia/assets/apc/apc-wheels-forward.gif" style="opacity: 0.01;">
+        <div id="apcWheelsShad" class="apcWheels"></div>
+        
+        <img id="apcHitL" class="apcHit" src="militia/assets/apc/apc-hit-L.png" style="visibility: hidden">
+        <img id="apcHitR" class="apcHit" src="militia/assets/apc/apc-hit-R.png" style="visibility: hidden">
+        
+        <img id="apcDmg1" class="apcDmg" src="militia/assets/apc/apc-dmg-1.gif" style="opacity: 0.01;">
+        <img id="apcDmg2" class="apcDmg" src="militia/assets/apc/apc-dmg-2.gif" style="opacity: 0.01;">
+        <img id="apcDmg3" class="apcDmg" src="militia/assets/apc/apc-dmg-3.gif" style="opacity: 0.01;">
+        
+        
+        
+        <div id="apcAnimHolder">
+          <img id=apcAnimRun src="militia/assets/apc/g-run.gif">
+          <img id=apcAnimGat src="militia/assets/apc/g-gather.gif" style="visibility: hidden">
+          <img id=apcAnimRet src="militia/assets/apc/g-return.gif" style="visibility: hidden">
+        </div>
+      </div>
+    </div>
+    
+    <div id="qteCtrl" style="visibility: hidden;">
+      <img id="qteD" class="qte" src="militia/assets/ui/btnRgtD.gif">
+      <img id="qteA" class="qte" src="militia/assets/ui/btnLftA.gif" style="display: none;">
+    </div>
+    
+    <!-------------------- OVERLAY SLIDES -------------------->
+    <!-- Slide images -->
+    <div id="hider" class="fullscreen visible"></div>
+    <div id="slideChar" class="fullscreen infoslide"><img src="militia/assets/ui/militia-char.png"></div>
+    <div id="slideIntro" class="fullscreen infoslide"><img src="militia/assets/ui/militia-intro-1.png"></div>
+    <div id="slideOutroG" class="fullscreen infoslide hidden"><img src="militia/assets/ui/militia-outro-1.png"></div>
+    <div id="slideOutroB" class="fullscreen infoslide hidden"><img src="militia/assets/ui/militia-outro-2.png"></div>
+    
+    <!-- Slide buttons -->
+    <div id="btns">
+      <a id="linkEndMinigame" class="btn btnLite togglehover hidden" href="index.html" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH">返總部</span> Return ⮌</a>
+      <a id="btnStartMinigame" class="btn btnLite togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH">提取!</span> Extract! →</a>
+      <div id="btnNxt" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">How to play?</div>
+      <div id="btnBck" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')" style="display: none;">← Back</div>
+    </div>
+  </div>
+</body>
+</html>

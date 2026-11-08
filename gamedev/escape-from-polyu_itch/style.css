@@ -1,0 +1,137 @@
+/* Z-INDICES */
+#sceneHolder  { z-index: 00; }
+#flashCircles { z-index: 01; }
+#maskImg      { z-index: 02; }
+#flashBeams   { z-index: 03; }
+.bigbutton    { z-index: 04; }
+.smallbutton  { z-index: 05; }
+#logoImg      { z-index: 06; }
+
+
+/* MAIN STYLES */
+body {
+    background-color: #181818;
+}
+
+#timerBar {
+    position:absolute;
+    width: 816px;
+    height: 6px;
+    left: 50%;
+    top: 20px;
+    margin: 0 auto;
+    margin-left: -408px;
+    background-color: #222222;
+}
+
+#timerTime {
+  width: 816px;
+  height: 6px;
+  background-color: #2e2e2e;
+}
+
+.fullscreen {
+    position:absolute;
+    width: 816px;
+    height: 576px;
+    left: 50%;
+    top: 50%;
+    margin: 0 auto;
+    margin-left: -408px;
+    margin-top: -288px;
+}
+#sceneHolder {
+    background-color: #181818;
+}
+
+.movewithmouse {
+    transform: translate( 
+        clamp(-36px, calc(var(--mouse-x) / 15), 36px),
+        clamp(-12px, calc(var(--mouse-y) / 15), 72px)
+    );
+}
+
+#maskImg {
+    background-color: transparent;
+    outline: 50px solid #181818;  
+}
+
+#breathFogAnim {
+    opacity: .02;
+}
+
+#logoImg {
+    position:absolute;
+    width: 816px;
+    height: 192px;
+    left: 50%;
+    top: 50%;
+    margin: 0 auto;
+    margin-left: -408px;
+    margin-top: -384px;
+}
+
+.bigbutton {
+    display: block;
+    position: absolute;
+    width: 192px;
+    height: 60px;
+    left: 50%;
+    bottom: 10%;
+    margin: 0 auto;
+    margin-left: -96px;
+}
+
+.smallbutton {
+    display: block;
+    position: absolute;
+    width: 63px;
+    height: 60px;
+    left: 50%;
+    bottom: 20%;
+    margin: 0 auto;
+    margin-left: -31px;
+}
+
+#begin { background-image: url("assets/buttons/button-begin.gif"); }
+#begin:hover { background-image: url("assets/buttons/button-begin-down.gif"); }
+
+#retry { background-image: url("assets/buttons/button-retry.gif"); }
+#retry:hover { background-image: url("assets/buttons/button-retry-down.gif"); }
+
+.soundOn { background-image: url("assets/buttons/button-musicOn.gif"); }
+.soundOn:hover { background-image: url("assets/buttons/button-musicOn-down.gif"); }
+
+.soundOff { background-image: url("assets/buttons/button-musicOff-up.gif"); }
+.soundOff:hover { background-image: url("assets/buttons/button-musicOff-down.gif"); }
+
+footer {
+    position:absolute;
+    width: 99%;
+    margin: 0 auto;
+    bottom: 20px;
+    height: 20px;
+    text-align:center;
+    font-family: consolas;
+}
+
+footer span                 { color: #5e666f; }
+
+footer a, p a               { color: #7a8693; }
+footer a:hover, p a:hover   { color: #c93030; }
+footer a:active, p a:hover  { color: #fd7070; }
+
+/* CREDITS PAGE STYLES */
+h1 {
+    text-align: center;
+    font-family: consolas;
+    color: #7a8693;
+}
+
+p {
+    text-align: center;
+    font-family: consolas;
+    color: #e0dbf5;
+}
+a.gamelink { color: #c93030; }
+p.signoff { color: #5e666f; }

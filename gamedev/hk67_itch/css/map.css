@@ -1,0 +1,27 @@
+/* ----- LEVEL SELECTION BUTTON POSITIONS ----- */
+/* Map buttons holder */
+#mapBtns { position: absolute; }
+
+/* Minigame link button positions */
+#linkStreets { /* Kowloon */
+  left: 190px;
+  top: 337px;
+  width: 165px;
+}
+
+#linkBombing { /* North Point */
+  left: 522px;
+  top: 373px;
+  width: 155px;
+}
+#linkInvestg { /* Tai Po */
+  left: 468px;
+  top: 139px;
+  width: 185px;
+}
+#linkShootup { /* Sha Tau Kok */
+  display: block;
+  left: 510px;
+  top: 25px;
+  width: 155px;
+}

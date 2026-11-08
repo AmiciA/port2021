@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <title>Hong Kong '67: Bombings in North Point</title>
+    
+	<meta charset="utf-8">
+  <meta name="author" content="*AAmici">
+  <meta name="description" content="A game about the 1967 Hong Kong riots.">
+	
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  
+  <link href="css/general.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="bombing/css/bombing.css" media="screen" rel="stylesheet" type="text/css">
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/general.js" defer></script>
+  <script src="bombing/js/bombing.js" defer></script>
+  <script src="bombing/js/bomb1.js" defer></script>
+  <script src="bombing/js/bomb2.js" defer></script>
+  <script src="bombing/js/bomb3.js" defer></script>
+  <script src="bombing/js/bomb4.js" defer></script>
+  <script src="bombing/js/bomb5.js" defer></script>
+</head>
+    
+<body>
+  <!-------------------- SOUNDS & MUSIC -------------------->
+  <audio id = 'sndClick' src='audio/beep.mp3'></audio>
+  <audio id = 'sndBombingTurn' src="bombing/audio/turn.wav"></audio>
+  <audio id = 'sndCntdwn' src="bombing/audio/countdown.wav"></audio>
+  <audio id = 'sndCorrect' src="bombing/audio/correct.wav"></audio>
+  <audio id = 'sndExplode' src="bombing/audio/explode.wav"></audio>
+  <audio id = 'sndAnnoyed' src="bombing/audio/annoyed.wav"></audio>
+  <audio id = 'sndBGMMain' src="bombing/audio/bombbkg.wav" loop></audio>
+  
+  
+  
+  <div id="gameHolder">
+    <!-------------------- UI ELEMENTS -------------------->
+    <!-- Scorecard -->
+    <div id="scoreHolder">
+      <div class="scoreIndivid">
+        <div class="scoreTitle">LOCAL<br>MORALE</div>
+      </div>
+        <div class="scoreIndivid">
+          <span id="scoreP">&nbsp;</span>
+          <span class="scoreTitle">PUBLIC</span>
+        </div>
+        <div class="scoreIndivid">
+          <span id="scoreR">&nbsp;</span>
+          <span class="scoreTitle">RIOTERS</span>
+        </div>
+    </div>
+    
+
+    
+    <!-------------------- INVESTIGATION MODAL -------------------->
+    <!-- Background overlay -->
+    <div id="modalhider" class=""></div>
+    
+    <div id="modal" style="display: none;">
+      <!-- Title area -->
+      <span class="scoreTitle modalTitle"><br>Explosive Ordnance Disposal Bureau</span>
+      <img id="modalClose" class="btn togglehover" src="bombing/assets/X.png">
+
+      <!-- Image gallery (filled dynamically) -->
+      <div id="imageHolder"></div>
+      <ul  id="imageList">
+        <li id="bombBigFront"></li>
+        <li id="bombBigBack"></li>
+        <li id="bombBigUnder"></li>
+      </ul>
+
+      <!-- Arrow controls -->      
+      <div id="arrowHolder">
+        <img id="btnArrowLeft"   class="btn togglehover" src="bombing/assets/arrow-L.png" onclick="PlaySound('sndBombingTurn')">
+        <img id="btnArrowMiddle" class="btn togglehover" src="bombing/assets/arrow-M.png" onclick="PlaySound('sndBombingTurn')">
+        <img id="btnArrowRight"  class="btn togglehover" src="bombing/assets/arrow-R.png" onclick="PlaySound('sndBombingTurn')">
+      </div>
+
+      <!-- Decision buttons -->
+      <div id="btnBombReal" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')" onclick="PlaySound('sndCntdwn')">
+        <div class="scoreTitle">REAL BOMB?</div>
+        Defuse
+      </div>
+      <div id="btnBombFake" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+        <div class="scoreTitle">FAKE BOMB?</div>
+        Ignore
+      </div>
+      
+      <!-- Defusal/Result progress bar -->
+      <div id="defusalProgress">
+        <div id="defusalTimeCurr"><span id="cntdnZH" class="ZHtiny">剩餘時間：</span><span id="cntdn">10</span></div>
+        <div id="defusalBarCurrBkg"></div>
+        <div id="defusalBarCurr"></div>
+      </div>
+    </div>
+    
+    
+    
+    <!-------------------- MAP ELEMENTS -------------------->
+    <div class="fullscreen">
+      <img src="bombing/assets/map-np.png">
+      
+      <div id="bomb1" class="bombplacer">
+        <img id="bomb1Img" class="bombWait" src="bombing/assets/icons/bomb-waiting.gif">
+        <div id=bomb1Timer class="bombTimer"></div>
+      </div>
+      
+      <div id="bomb2" class="bombplacer">
+        <img id="bomb2Img" class="bombWait" src="bombing/assets/icons/bomb-waiting.gif">
+        <div id=bomb2Timer class="bombTimer"></div>
+      </div>
+      
+      <div id="bomb3" class="bombplacer">
+        <img id="bomb3Img" class="bombWait" src="bombing/assets/icons/bomb-waiting.gif">
+        <div id=bomb3Timer class="bombTimer"></div>
+      </div>
+      
+      <div id="bomb4" class="bombplacer">
+        <img id="bomb4Img" class="bombWait" src="bombing/assets/icons/bomb-waiting.gif">
+        <div id=bomb4Timer class="bombTimer"></div>
+      </div>
+      
+      <div id="bomb5" class="bombplacer">
+        <img id="bomb5Img" class="bombWait" src="bombing/assets/icons/bomb-waiting.gif">
+        <div id=bomb5Timer class="bombTimer"></div>
+      </div>
+    </div>
+    
+    
+    
+    <!-------------------- CURSOR FOLLOWER -------------------->
+    <div id="follower"><img id="followerImg" src="streets/assets/cursors/cur-empty.png"></div>
+    
+    
+    
+    <!-------------------- OVERLAY SLIDES -------------------->
+    <!-- Slide images -->
+    <div id="hider" class="fullscreen visible"></div>
+    <div id="slideChar" class="fullscreen infoslide"><img src="bombing/assets/bomb-char.png"></div>
+    <div id="slideIntro" class="fullscreen infoslide"><img src="bombing/assets/bomb-intro-1.png"></div>
+    <div id="slideOutroG" class="fullscreen infoslide hidden"><img src="bombing/assets/bomb-outro-1.png"></div>
+    <div id="slideOutroB" class="fullscreen infoslide hidden"><img src="bombing/assets/bomb-outro-2.png"></div>
+    
+    <!-- Slide buttons -->
+    <div id="btns">
+      <a id="linkEndMinigame" class="btn btnLite togglehover hidden" href="index.html" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH">返總部</span> Return ⮌</a>
+      <a id="btnStartMinigame" class="btn btnLite togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')"><span class="ZH">調查!</span> Investigate! →</a>
+      <div id="btnNxt" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">How to play?</div>
+      <div id="btnBck" class="btn btnLite btnSml togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')" style="display: none;">← Back</div>
+    </div>
+    
+    
+    
+    <!-------------------- AUDIO CONTROLLER -------------------->
+    <!--<a id="btnAudio" class="btn btnDark togglehover" onmouseover="PlaySound('sndClick')" onmouseout="StopSound('sndClick')">
+      <img src="assets/intro/audio-on-neg.png">
+    </a>-->
+  </div>
+  
+  
+  
+  <!-------------------- FOOTER -------------------->
+  <footer>
+    <span>©2020 *AAmici</span>
+    <a class="footerLink" href="credits.html">Credits</a>
+  </footer>
+</body>
+</html>
