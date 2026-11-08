@@ -439,8 +439,8 @@ a.current {
 }
 
 /* MULTICOLUMN ———————————————————————————————————————————————————————————————————————————— */
-/*.twocol {
-  max-width: 48%;
+.twocol {
+  max-width: 49%;
 }
 
 /* 3-across images (gifs) */
