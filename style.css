@@ -338,8 +338,9 @@ footer p {
 }
 
 .railLeft > img {
-  border: 1px solid #504a5a;
   width: 99.5%;
+  border: 1px solid #504a5a;
+  margin-bottom: 0px;
 }
 
 .railLeft > .flavourText {
