@@ -51,9 +51,10 @@ body {
   color: #dad8de;
 }
 
-img {
+img, video {
   border-radius: 4px;
   max-width: 100%;
+  margin-bottom: 24px;
 }
 
 hr {
@@ -440,7 +441,13 @@ a.current {
 
 /* MULTICOLUMN ———————————————————————————————————————————————————————————————————————————— */
 .twocol {
-  max-width: 49%;
+  /*max-width: 49%;*/
+  display: flex;
+  column-gap: 24px;
+}
+
+.colitem {
+  width: 50%;
 }
 
 /* 3-across images (gifs) */
